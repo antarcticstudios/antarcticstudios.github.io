@@ -22,13 +22,13 @@ body {
 }
 
 h1,
-h2,
+h2 {color: #fff;}
 h3,
 h4,
 h5,
 h6 {
 	margin: 0;
-	color: #fff;
+	color: #ccffff;
 	font-weight: 500;
 }
 
@@ -106,7 +106,7 @@ ol {
 	height: 4px;
 	left: 0;
 	bottom: 0;
-	background: #ffe400;
+	background: #ccffff;
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -151,7 +151,7 @@ ol {
 	min-width: 146px;
 	padding: 9px 10px;
 	border-radius: 5px;
-	background: #ffe400;
+	background: #ccffff;
 	cursor: pointer;
 }
 
@@ -167,8 +167,8 @@ ol {
 
 .site-btn.sb-line {
 	background: transparent;
-	border: 2px solid #ffe400;
-	color: #ffe400;
+	border: 2px solid #ccffff;
+	color: #ccffff;
 	padding: 7px 10px;
 }
 
@@ -274,11 +274,11 @@ ol {
 
 .accordion-area .panel-header .panel-link.active {
 	background: transparent;
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .accordion-area .panel-header .panel-link.collapsed {
-	background: #ffe400;
+	background: #ccffff;
 	color: #1b1b1b;
 }
 
@@ -290,7 +290,7 @@ ol {
 .accordion-area .panel-link.active:after {
 	content: "-";
 	margin-top: -10px;
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .accordion-area .panel-link {
@@ -300,12 +300,12 @@ ol {
 	padding: 10px 40px;
 	padding-left: 20px;
 	font-size: 18px;
-	background: #ffe400;
+	background: #ccffff;
 	font-weight: 700;
 	color: #1b1b1b;
 	line-height: 1;
 	cursor: pointer;
-	border: 3px solid #ffe400;
+	border: 3px solid #ccffff;
 	border-radius: 7px;
 }
 
@@ -331,10 +331,10 @@ ol {
 	font-size: 18px;
 	color: #1b1b1b;
 	font-weight: 700;
-	border: 3px solid #ffe400;
+	border: 3px solid #ccffff;
 	padding: 6px 22px;
 	margin-right: 15px;
-	background: #ffe400;
+	background: #ccffff;
 	margin-bottom: 10px;
 }
 
@@ -344,7 +344,7 @@ ol {
 
 .tab-element .nav-tabs .nav-link.active {
 	background: transparent;
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .tab-element .tab-pane p {
@@ -414,7 +414,7 @@ ol {
 
 .icon-boxe i {
 	display: block;
-	color: #ffe400;
+	color: #ccffff;
 	font-size: 65px;
 	margin-bottom: 15px;
 }
@@ -431,7 +431,7 @@ ol {
 .icon-boxe .readmore {
 	font-size: 18px;
 	font-weight: 700;
-	color: #ffe400;
+	color: #ccffff;
 }
 
 /*------------------
@@ -483,7 +483,7 @@ ol {
 }
 
 .main-menu li a:hover {
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .main-menu li.active a {
@@ -497,7 +497,7 @@ ol {
 	height: 4px;
 	left: 0;
 	bottom: -1px;
-	background: #ffe400;
+	background: #ccffff;
 }
 
 .header-social-links {
@@ -567,9 +567,9 @@ ol {
 .hero-slider .owl-nav .owl-prev {
 	width: 56px;
 	height: 56px;
-	border: 1px solid #ffe400;
+	border: 1px solid #ccffff;
 	border-radius: 50%;
-	color: #ffe400;
+	color: #ccffff;
 	text-align: center;
 	display: inline-block;
 	padding-top: 12px;
@@ -589,7 +589,7 @@ ol {
 	display: inline-block;
 	width: 13px;
 	height: 13px;
-	border: 2px solid #ffe400;
+	border: 2px solid #ccffff;
 	border-radius: 50%;
 	margin-right: 9px;
 }
@@ -599,7 +599,7 @@ ol {
 }
 
 .hero-slider .owl-dots .owl-dot.active {
-	background: #ffe400;
+	background: #ccffff;
 }
 
 .hs-item {
@@ -614,7 +614,7 @@ ol {
 
 .hs-item span {
 	font-size: 24px;
-	color: #ffe400;
+	color: #ccffff;
 	font-weight: 500;
 	display: block;
 	margin-bottom: 5px;
@@ -692,7 +692,7 @@ ol {
 	height: 4px;
 	right: 0;
 	bottom: 0;
-	background: #ffe400;
+	background: #ccffff;
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -761,7 +761,7 @@ ol {
 	position: absolute;
 	top: 0;
 	left: 100%;
-	color: #ffe400;
+	color: #ccffff;
 	font-size: 14px;
 	font-weight: 500;
 	margin-left: 10px;
@@ -822,7 +822,7 @@ ol {
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
-	background: #ffe400;
+	background: #ccffff;
 	color: #212121;
 	font-size: 14px;
 	font-weight: 700;
@@ -854,7 +854,7 @@ ol {
 	height: 4px;
 	left: 0;
 	bottom: -1px;
-	background: #ffe400;
+	background: #ccffff;
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -885,7 +885,7 @@ ol {
 .ft-blog-widget .bw-content a {
 	font-size: 14px;
 	font-weight: 500;
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .ft-contact-widget p {
@@ -894,7 +894,7 @@ ol {
 }
 
 .ft-contact-widget p span {
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .ft-contact-widget .footer-logo {
@@ -917,7 +917,7 @@ ol {
 }
 
 .footer-section p a {
-	color: #ffe400;
+	color: #ccffff;
 }
 
 /*------------------
@@ -1006,7 +1006,7 @@ ol {
 
 .service-box .readmore {
 	font-weight: 700;
-	color: #ffe400;
+	color: #ccffff;
 	text-transform: uppercase;
 	font-size: 18px;
 	display: block;
@@ -1058,7 +1058,7 @@ ol {
 	height: 4px;
 	right: 0;
 	bottom: 0;
-	background: #ffe400;
+	background: #ccffff;
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -1151,7 +1151,7 @@ ol {
 
 .dj-single {
 	position: relative;
-	border-bottom: 4px solid #ffe400;
+	border-bottom: 4px solid #ccffff;
 }
 
 .dj-single:after {
@@ -1172,7 +1172,7 @@ ol {
 }
 
 .dj-single:hover .dj-info-warp {
-	background: #ffe400;
+	background: #ccffff;
 }
 
 .dj-single:hover .dj-info-warp h4,
@@ -1311,7 +1311,7 @@ ol {
 
 .shows-menu.nav-tabs .nav-item .nav-link.active {
 	background-color: transparent;
-	border-bottom: 4px solid #ffe400;
+	border-bottom: 4px solid #ccffff;
 }
 
 .shows-menu.nav-tabs .nav-item .nav-link.active:after {
@@ -1363,7 +1363,7 @@ ol {
 }
 
 .show-info span {
-	background: #ffe400;
+	background: #ccffff;
 	color: #191919;
 	display: inline-block;
 	padding: 8px 10px;
@@ -1395,7 +1395,7 @@ ol {
 	left: 22px;
 	bottom: 22px;
 	display: inline-block;
-	background: #ffe400;
+	background: #ccffff;
 	font-size: 18px;
 	font-weight: 700;
 	padding: 0 5px;
@@ -1414,7 +1414,7 @@ ol {
 	height: 4px;
 	right: 0;
 	bottom: 0;
-	background: #ffe400;
+	background: #ccffff;
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -1453,7 +1453,7 @@ ol {
 }
 
 .blog-item .blog-content .readmore:hover {
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .pagination-warp {
@@ -1491,12 +1491,12 @@ ol {
 }
 
 .site-pagination a i {
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .site-pagination a.active {
 	background: #191919;
-	border-bottom: 1px solid #ffe400;
+	border-bottom: 1px solid #ccffff;
 }
 
 /*------------------
@@ -1536,7 +1536,7 @@ ol {
 	height: 2px;
 	right: 0;
 	bottom: 0;
-	background: #ffe400;
+	background: #ccffff;
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -1562,7 +1562,7 @@ ol {
 }
 
 .contact-info p span {
-	color: #ffe400;
+	color: #ccffff;
 }
 
 .map {

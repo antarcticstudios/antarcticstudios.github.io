@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGPTWMVZ53"></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-PGPTWMVZ53');
 </script>
-	<title>Contact us - Antarctic Studios</title>
+	<title>Antarctic Studios</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="Antarctic Studios - Contact information page">
-	<meta name="keywords" content="radio, station, creative, html">
+    <meta property="og:title" content="Antarctic Studios">
+	<meta name="description" content="Antarctic Studios">
+    <meta name="og:image" content="img/logo_fullres.png">
+    <meta property="og:description" content="A comprehensive Canadian audio production studio capable of all your mixing, mastering, compositional and recording needs, delivering industry-standard quality at affordable rates.">
+	<meta name="keywords" content="studio, recording, mixing, mastering, antarctic studios">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="img/logo_fullres.png">
 	<!-- Favicon -->   
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 
@@ -29,17 +35,27 @@
 	<link rel="stylesheet" href="css/animate.css"/>
 
 
+
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+    
+    <!--style>
+    body {
+        overflow-y:hidden;
+
+    
+    }
+    </style-->
 
 </head>
 <body>
+
 	<!-- Page Preloder -->
-	<!-- <div id="preloder">
+	<div id="preloder">
 		<div class="loader"></div>
-	</div> -->
+	</div>
 	
 	<!-- Header section -->
 	<header class="header-section">
@@ -54,8 +70,8 @@
 			</div>
 			<!-- Main Menu -->
 			<ul class="main-menu">
-				<li><a href="..">Home</a></li>
-				<li class="active"><a href="contact">Contact</a></li>
+				<li class="active"><a href="..">Home</a></li>
+				<li><a href="contact">Contact</a></li>
 			</ul>
 			<!-- Social Links -->
 			<div class="header-social-links">
@@ -68,59 +84,45 @@
 	</header>
 	<!-- Header section end -->
 
-
-	<!--  section -->
-	<section class="page-info-section set-bg" data-setbg="img/page-info-bg.jpg">
-		<div class="container">
-			<div class="section-title text-center">
-				<h2>Contact</h2>	
-			</div>
-		</div>
-	</section>
-	<!--  section end -->
-	
-
-	<!-- contact section -->
-	<section class="contact-section">
-		<div class="container">
+                                 
+	<!-- Hero section -->
+	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
+		
 			
-			<div class="contact-info">
-				<p>Kitchener, Ontario, Canada</p>
-				<p><a href="https://instagram.com/antarcticstudios"><i class="fa fa-instagram"></i> @antarcticstudios </a></p>
-				<p><a href="https://facebook.com/antarcticstudios"><i class="fa fa-facebook"></i> @antarcticstudios </a></p>
-				<p><a href="mailto:alex@antarcticstudios.ca"><i class="fa fa-envelope"></i> alex@antarcticstudios.ca</a></p>
-				<p><i class="fa fa-phone"></i> +1 226 770 0265</p>
+				<div class="container">
+					<h3><br>Antarctic Studios</h3>
+					<h2>A comprehensive Canadian audio production studio capable of all your mixing, mastering, compositional and recording needs, delivering industry-standard quality at affordable rates.</h2>
+					<h4> <br>   </h4>
+					<h4>Robot Philosopher - Prosthesis - <i>Instrumental post rock</i></h4> 
+					<h5><i>Mixed and mastered</i></h5>
+					<audio controls>
+						<source src="audio/prosthesis.mp3" type="audio/mp3">
+					</audio>
+					<h4><br>Gaston - Tear Us Apart - <i>Pop punk</i></h4> 
+					<h5><i>Mixed and mastered</i></h5>
+					<audio controls>
+						<source src="audio/tearusapart.mp3" type="audio/mp3">
+					</audio>
+					<h4><br>McVittie - One Up - <i>Instrumental electronic</i></h4> 
+					<h5><i>Produced, recorded, mixed, and mastered</i></h5>
+					<audio controls>
+						<source src="audio/oneup.mp3" type="audio/mp3">
+					</audio>
+					<h4><br>Benjamin Sigerson - Beyond The Blue Forever - <i>Choral</i></h4> 
+					<h5><i>Edited, mixed, and mastered</i></h5>
+					<audio controls>
+						<source src="audio/beyondtheblue.mp3" type="audio/mp3">
+					</audio>
+					
+					
 				
-			</div>
-			<div class="section-title text-center">
-				<h2>Get in Touch</h2>	
-			</div>
-			<form class="contact-form" action="https://formspree.io/f/maylelbk" method="POST">
-				<div class="row">
-					<div class="col-lg-4">
-						<input type="text" placeholder="Your Name" name="name">
-					</div>
-					<div class="col-lg-4">
-						<input type="text" placeholder="Your E-mail" name="_replyto">
-					</div>
-					<div class="col-lg-4">
-						<input type="text" placeholder="Subject" name="subject">
-					</div>
-					<div class="col-lg-12">
-						<textarea placeholder="Message"></textarea>
-						<div class="text-center">
-							<button class="site-btn" value="Send">SEND IT!</button>
-						</div>
-					</div>	
 				</div>
-			</form>
-		</div>
+			
+		
 	</section>
-	<!--  contact section end -->
-
-
-
-		<!-- Footer Top section -->
+	<!-- Hero section end -->
+	
+	<!-- Footer Top section -->
 		<section class="footer-top-section">
 			<div class="container">
 				<div class="row">
@@ -181,7 +183,7 @@
 							<p><a href="https://instagram.com/antarcticstudios"><i class="fa fa-instagram"> </i> @antarcticstudios</a></p>
 							<p><a href="https://facebook.com/antarcticstudios"><i class="fa fa-facebook"></i> @antarcticstudios </a></p>
 							<p><a href="mailto:alex@antarcticstudios.ca"><i class="fa fa-envelope"></i> alex@antarcticstudios.ca</a></p>
-							<p><i class="fa fa-phone"></i> +1 226 770 0265</p>
+							<p><i class="fa fa-phone"></i> +1 226 770 0265</a></p>
 							<img src="img/logo.png" class="footer-logo" alt="">
 						</div>
 					</div>
@@ -196,6 +198,8 @@
 			</div>
 		</section>
 		<!-- Footer Top section end -->
+	
+	
 
 
 	<!-- Footer section -->
@@ -210,8 +214,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
-
-
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -219,11 +221,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/main.js"></script>
+	
+	<script src="js/wavesurfer.min.js"></script>
+	<script src="js/audio.js"></script>
 
 
-	<!-- load for map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
-	<script src="js/map.js"></script>
+
 
     </body>
 </html>

@@ -38,23 +38,23 @@ h1 {
 }
 
 h2 {
-	font-size: 36px;
-}
-
-h3 {
-	font-size: 30px;
-}
-
-h4 {
 	font-size: 24px;
 }
 
-h5 {
+h3 {
+	font-size: 20px;
+}
+
+h4 {
 	font-size: 18px;
 }
 
-h6 {
+h5 {
 	font-size: 16px;
+}
+
+h6 {
+	font-size: 14px;
 }
 
 p {

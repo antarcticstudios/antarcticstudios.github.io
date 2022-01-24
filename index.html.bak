@@ -94,23 +94,23 @@
 					<h2>A comprehensive Canadian audio production studio capable of all your mixing, mastering, audio restoration and recording needs, delivering industry-standard quality at affordable rates.</h2>
 					<h4> <br>   </h4>
 					<h4>Robot Philosopher - Prosthesis - <i>Instrumental post rock</i></h4> 
-					<h5><i>Mixed and mastered</i></h5>
-					<audio controls>
+					<h5><i>Keyboards, Mixed and mastered</i></h5>
+					<audio controls controlsList="nodownload">
 						<source src="audio/prosthesis.mp3" type="audio/mp3">
 					</audio>
 					<h4><br>Gaston - Tear Us Apart - <i>Pop punk</i></h4> 
 					<h5><i>Mixed and mastered</i></h5>
-					<audio controls>
+					<audio controls controlsList="nodownload">
 						<source src="audio/tearusapart.mp3" type="audio/mp3">
 					</audio>
 					<h4><br>McVittie - One Up - <i>Instrumental electronic</i></h4> 
 					<h5><i>Produced, recorded, mixed, and mastered</i></h5>
-					<audio controls>
+					<audio controls controlsList="nodownload">
 						<source src="audio/oneup.mp3" type="audio/mp3">
 					</audio>
 					<h4><br>Benjamin Sigerson - Beyond The Blue Forever - <i>Choral</i></h4> 
 					<h5><i>Edited, mixed, and mastered</i></h5>
-					<audio controls>
+					<audio controls controlsList="nodownload">
 						<source src="audio/beyondtheblue.mp3" type="audio/mp3">
 					</audio>
 					

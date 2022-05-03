@@ -9,6 +9,15 @@
   gtag('js', new Date());
 
   gtag('config', 'G-PGPTWMVZ53');
+  
+  document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+    }
+}, true);
 </script>
 	<title>Antarctic Studios</title>
 	<meta charset="UTF-8">
@@ -93,6 +102,11 @@
 					<h3><br>Antarctic Studios</h3>
 					<h2>A comprehensive Canadian audio production studio capable of all your mixing, mastering, audio restoration and recording needs, delivering industry-standard quality at affordable rates.</h2>
 					<h4> <br>   </h4>
+					<h4>Robot Philosopher - Cosmic Orphan - <i>Orchestral</i></h4> 
+					<h5><i>Keyboards & orchestral programming, mixed and mastered</i></h5>
+					<audio controls controlsList="nodownload">
+						<source src="audio/cosmicorphan.mp3" type="audio/mp3">
+					</audio>
 					<h4>Robot Philosopher - Prosthesis - <i>Instrumental post rock</i></h4> 
 					<h5><i>Keyboards & orchestral programming, mixed and mastered</i></h5>
 					<audio controls controlsList="nodownload">

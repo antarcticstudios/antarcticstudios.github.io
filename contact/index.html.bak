@@ -55,7 +55,7 @@
 			<!-- Main Menu -->
 			<ul class="main-menu">
 				<li><a href="..">Home</a></li>
-				<li class="active"><a href="contact">Contact</a></li>
+				<li class="active"><a href="contact">Contact and Booking Info</a></li>
 			</ul>
 			<!-- Social Links -->
 			<div class="header-social-links">
@@ -74,6 +74,8 @@
 		<div class="container">
 			<div class="section-title text-center">
 				<h2>Contact</h2>	
+				<h3>Rates for all services are available upon request. Inquire today - we would love to help bring your project to life and help fit your artistic vision!</h3>
+				<h4>All services require a minimum 30%, non-refundable deposit paid 24 hours prior to session start time. Failure to pay in advance will result in a loss in booked spot, with a re-booking requiring a 50% deposit as well as an additional 10% increase in the price of service.</h4>
 			</div>
 		</div>
 	</section>
@@ -94,7 +96,7 @@
 			</div>
 			<div class="section-title text-center">
 				<h2>Get in Touch</h2>	
-				<h3>Rates for all services are available upon request. Inquire today - we would love to help bring your project to life and help fit your artistic vision!</h3>
+				
 			</div>
 			<form class="contact-form" action="https://formspree.io/f/maylelbk" method="POST">
 				<div class="row">

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="studio.mp4" type="video/mp4">
+</video>
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  
+</div>
+
+<script>
+// JavaScript to resize video when window is resized
+function resizeVideo() {
+  var video = document.getElementById('myVideo');
+  var aspectRatio = video.videoWidth / video.videoHeight;
+  var windowWidth = window.innerWidth;
+  var windowHeight = window.innerHeight;
+  
+  var videoWidth, videoHeight;
+
+  // Adjust video dimensions based on window size and aspect ratio
+  if (windowWidth / windowHeight > aspectRatio) {
+    videoWidth = windowWidth;
+    videoHeight = windowWidth / aspectRatio;
+  } else {
+    videoHeight = windowHeight;
+    videoWidth = windowHeight * aspectRatio;
+  }
+
+  // Apply new dimensions
+  video.style.width = videoWidth + 'px';
+  video.style.height = videoHeight + 'px';
+}
+
+// Call resizeVideo initially and on window resize
+resizeVideo();
+window.addEventListener('resize', resizeVideo);
+</script>
+
+</body>
+</html>

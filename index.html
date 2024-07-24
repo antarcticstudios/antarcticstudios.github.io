@@ -3,6 +3,26 @@
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGPTWMVZ53"></script>
+<style>
+#myVideo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1000
+}
+.transparentcontentbox {
+    background-color: #19191980; /* Adjust opacity (last value) for translucency */
+    padding: 10px;
+    border-radius: 10px;
+
+
+	
+    /* Other styling properties */
+}
+</style>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -105,9 +125,10 @@
 
                                  
 	<!-- Hero section -->
-	<section class="hero set-bg" data-setbg="img/bg.jpg">
+	<section class="hero" >
+
 		
-			
+				<div class="transparentcontentbox">
 				<div class="container">
 					<h3><br>Antarctic Studios</h3>
 					<h2>A comprehensive Canadian audio production studio capable of all your mixing, mastering, audio restoration and recording needs, delivering industry-standard quality at affordable rates.</h2>
@@ -189,71 +210,25 @@
 						  </div>
 						</div>
 					
-					
+									<video autoplay muted loop id="myVideo">
+		  <source src="studio.webm" type="video/webm">
+		</video>
 					
 				
-				</div>
+				</div></div>
 			
-		
+
 	</section>
 
 	<!-- Hero section end -->
 	
 	<!-- Footer Top section -->
 		<section class="footer-top-section">
-							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-c944c570-0782-463b-af03-2f21bff17cac"></div>
+			<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+			<div class="elfsight-app-c944c570-0782-463b-af03-2f21bff17cac"></div>
 			<div class="container">
 				<div class="row">
 	
-					<!--
-					<div class="col-lg-3 col-md-6 ft-widget">
-						<div class="ft-title">
-							<h4>Locations</h4>
-						</div>
-						<ul>
-							<li><a href="">Berlin</a></li>
-							<li><a href="">Bucharest</a></li>
-							<li><a href="">London</a></li>
-							<li><a href="">Budapest</a></li>
-							<li><a href="">Tel Aviv</a></li>
-							<li><a href="">Moscow</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-3 col-md-6 ft-widget">
-						<div class="ft-title">
-							<h4>Top Shows</h4>
-						</div>
-						<ul class="order-list">
-							<li><a href=""><span>1</span>88,8 Weekly Chart</a></li>
-							<li><a href=""><span>2</span>Transitions - John Digweed</a></li>
-							<li><a href=""><span>3</span>Who’s On Top? with John Doe</a></li>
-							<li><a href=""><span>4</span>88,8 News</a></li>
-							<li><a href=""><span>5</span>Electronic Worriors</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-3 col-md-6 ft-widget">
-						<div class="ft-title">
-							<h4>Blog</h4>
-						</div>
-						<div class="ft-blog-widget">
-							<div class="bw-item">
-								<div class="bw-thumb set-bg" data-setbg="img/blog/thumb/1.jpg"></div>
-								<div class="bw-content">
-									<p>5 Things to know when you attend a music festival. </p>
-									<a href="#">Continue Reading</a>
-								</div>
-							</div>
-							<div class="bw-item">
-								<div class="bw-thumb set-bg" data-setbg="img/blog/thumb/2.jpg"></div>
-								<div class="bw-content">
-									<p>5 Things to know when you attend a music festival. </p>
-									<a href="#">Continue Reading</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					-->
 					<div class="col-lg-3 col-md-6 ft-widget">
 						<div class="ft-title">
 							<h4>Contact</h4>
@@ -285,7 +260,7 @@
 	<footer class="footer-section">
 		<div class="contaoner">
 			<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib. </a> <br> Background video taken from video interview. Interview conducted and edited by Aashish Nishal, Broadcasting Performance and Digital Media Program, Conestoga College.
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 		</div>
 	</footer>

@@ -55,7 +55,7 @@
 			<!-- Main Menu -->
 			<ul class="main-menu">
 				<li><a href="..">Home</a></li>
-				<li><a href="contact">Contact and Booking Info</a></li>
+				<li><a href="../contact">Contact and Booking Info</a></li>
 				<li class="active"><a href="equipment">Studio Equipment</a></li>
 			</ul>
 			<!-- Social Links -->

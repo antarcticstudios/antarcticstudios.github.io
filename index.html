@@ -210,11 +210,9 @@
 						  
 						  </div>
 						</div>
-					
-									<video autoplay muted loop id="myVideo">
-		  <source src="studio.webm" type="video/webm">
-		</video>
-					
+	<div id="videoContainer">		
+
+	</div>
 				
 				</div></div>
 			
@@ -279,6 +277,29 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 	<script src="js/wavesurfer.min.js"></script>
 	<script src="js/audio.js"></script>
+	
+	
+	<script>
+  window.addEventListener('load', function() {
+    // Create the video element
+    const video = document.createElement('video');
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.id = 'myVideo';
+
+    // Create the source element
+    const source = document.createElement('source');
+    source.src = 'studio.webm';
+    source.type = 'video/webm';
+
+    // Append the source to the video
+    video.appendChild(source);
+
+    // Append the video to the container
+    document.getElementById('videoContainer').appendChild(video);
+  });
+</script>
 
 
 

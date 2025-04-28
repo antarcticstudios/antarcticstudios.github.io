@@ -357,11 +357,18 @@ accButtons.forEach(button => {
 });
 
 expandAllButton.addEventListener("click", () => {
+	allExpanded = !allExpanded;
 	accButtons.forEach(button => {
 		const content = button.nextElementSibling;
-		button.classList.add("active");
-		content.style.display = "block";
+		if (allExpanded) {
+			button.classList.add("active");
+			content.style.display = "block";
+		} else {
+			button.classList.remove("active");
+			content.style.display = "none";
+		}
 	});
+	expandAllButton.textContent = allExpanded ? "Collapse All Sections" : "Expand All Sections";
 });
 </script>
 	

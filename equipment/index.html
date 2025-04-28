@@ -342,6 +342,7 @@
 <script>
 const accButtons = document.querySelectorAll(".accordion-button");
 const expandAllButton = document.getElementById("expandAll");
+let allExpanded = false; // <<< This needs to be here!
 
 accButtons.forEach(button => {
 	button.addEventListener("click", () => {
@@ -355,7 +356,6 @@ accButtons.forEach(button => {
 		}
 	});
 });
-
 expandAllButton.addEventListener("click", () => {
 	allExpanded = !allExpanded;
 	accButtons.forEach(button => {

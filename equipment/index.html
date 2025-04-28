@@ -77,6 +77,10 @@
 	<div class="text-center">
 		<h2>Studio Inventory</h2>
 		<h6>Click or tap on any section below to expand.</h6>	
+		<br>
+		<h6> <button id="expandAll" style="margin-bottom: 20px; padding: 10px 20px; font-size: 16px; cursor: pointer;">
+	Expand All Sections
+</button></h6>
 	</div>
 
 	<div class="container">
@@ -327,11 +331,11 @@
 
 <script>
 const accButtons = document.querySelectorAll(".accordion-button");
+const expandAllButton = document.getElementById("expandAll");
 
 accButtons.forEach(button => {
 	button.addEventListener("click", () => {
 		const content = button.nextElementSibling;
-
 		button.classList.toggle("active");
 
 		if (content.style.display === "block") {
@@ -339,6 +343,14 @@ accButtons.forEach(button => {
 		} else {
 			content.style.display = "block";
 		}
+	});
+});
+
+expandAllButton.addEventListener("click", () => {
+	accButtons.forEach(button => {
+		const content = button.nextElementSibling;
+		button.classList.add("active");
+		content.style.display = "block";
 	});
 });
 </script>

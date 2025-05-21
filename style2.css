@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+    margin: 2rem;
+    background: #fafafa;
+    color: #333;
+  }
+  
+  .filters {
+    margin-bottom: 1rem;
+  }
+  
+  .filters label {
+    margin-right: 1rem;
+  }
+  
+  .track {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: white;
+    transition: background-color 0.2s;
+  }
+  
+  .track:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .track-title {
+    font-weight: bold;
+  }
+  
+  .track-credits {
+    font-size: 0.9em;
+    color: #555;
+  }

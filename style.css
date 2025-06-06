@@ -249,6 +249,15 @@ main, #app {
       padding: 20px;
       border-radius: 10px;
     }
+    @media (max-width: 768px) {
+  .intro .content {
+    margin-top: 100px;
+  }
+}
+.menu-toggle { display: none; cursor: pointer; }
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+}
     .intro img {
       max-width: 400px;
       border-radius: 12px;

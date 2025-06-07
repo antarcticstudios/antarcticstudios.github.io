@@ -247,6 +247,7 @@ main, #app {
       filter: brightness(0.4) blur(4px);
     }
     .intro .content {
+      margin-top: 100px;
       position: relative;
       z-index: 1;
       max-width: 600px;

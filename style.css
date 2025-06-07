@@ -268,8 +268,8 @@ main, #app {
     .content h1 { margin-bottom: 1rem; }
 
     @keyframes fade {
-      0% { background-image: url('img/studio2 copy.jpg'); }
-      100% { background-image: url('img/studio2 copy.jpg'); }
+      0% { background-image: url('img/faderport.webp'); }
+      100% { background-image: url('img/faderport.webp'); }
     }
   section:first-of-type {
       padding-top: 0px;

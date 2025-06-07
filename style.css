@@ -139,6 +139,11 @@ h4 {
   color: #aaa;
   margin-top: 0.25rem;
 }
+.ft-contact-widget {
+  padding: 2em;
+  text-align:  center;
+  color: #ccffffaa
+}
 
 @media (max-width: 600px) {
   .track {

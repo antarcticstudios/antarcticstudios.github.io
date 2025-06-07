@@ -116,11 +116,15 @@ tracks.forEach(track => {
 const trackListEl = document.getElementById("track-list");
 const player = document.getElementById("player");
 const filterButtonsEl = document.getElementById("filter-buttons");
+const genreButtonsEl = document.getElementById("genre-buttons");
 
 let activeFilters = new Set(); // Start with nothing selected
 let activeGenres = new Set();
 let currentPlayingEl = null;
 let currentPlayingFile = null;
+
+let activeCredit = null;
+let activeGenre = null;
 
 
 
@@ -142,7 +146,6 @@ roles.forEach(role => {
   filterButtonsEl.appendChild(btn);
 });
 
-const genreButtonsEl = document.getElementById("genre-buttons");
 
 genres.forEach(genre => {
   const btn = document.createElement("button");
@@ -178,17 +181,12 @@ function playTrack(track, trackEl) {
 function renderTracks() {
   trackListEl.innerHTML = "";
 
-const filtered = tracks.filter(track => {
-  const roleMatch = activeFilters.size === 0 ||
-    track.credits.some(credit => activeFilters.has(credit));
+  const filtered = tracks.filter(track => {
+    const creditMatch = !activeCredit || track.credits.includes(activeCredit);
+    const genreMatch = !activeGenre || track.genres.includes(activeGenre);
+    return creditMatch && genreMatch;
+  });
 
-  const genreMatch = activeGenres.size === 0 ||
-    track.genres.some(genre => activeGenres.has(genre));
-    
-
-  return roleMatch && genreMatch;
-  
-});
   filtered.forEach(track => {
     const div = document.createElement("div");
     div.className = "track";
@@ -200,45 +198,76 @@ const filtered = tracks.filter(track => {
         <div class="track-genres"><strong>Genres:</strong> ${track.genres.join(", ")}</div>
         ${track.disclaimer ? `<div class="track-disclaimer">${track.disclaimer}</div>` : ""}
       </div>
-      ${track.disclaimer ? `<div class="tooltip">${track.disclaimer}</div>` : ""}
     `;
-    if (track.file === currentPlayingFile) {
-  div.classList.add("playing");
-  currentPlayingEl = div;
+
+    div.onclick = () => {
+      const isSameTrack = player.src.includes(track.file);
+      if (isSameTrack) {
+        player.paused ? player.play() : player.pause();
+      } else {
+        player.src = track.file;
+        player.play();
+      }
+
+      if (currentPlayingEl) currentPlayingEl.classList.remove("playing");
+      div.classList.add("playing");
+      currentPlayingEl = div;
+      currentPlayingFile = track.file;
+    };
+
+    trackListEl.appendChild(div);
+  });
+
+  // Update buttons in case the filters change what's available
+  renderFilterButtons();
 }
 
-    player.addEventListener("pause", () => {
-  if (currentPlayingEl) {
-    currentPlayingEl.classList.remove("playing");
-  }
-});
-    
-div.onclick = () => {
-  const isSameTrack = player.src.includes(track.file);
+// --- Render credit buttons ---
+function renderFilterButtons() {
+  filterButtonsEl.innerHTML = "";
+  genreButtonsEl.innerHTML = "";
 
-  if (isSameTrack) {
-    // Toggle play/pause if already selected
-    if (player.paused) {
-      player.play();
-      currentPlayingFile = track.file;
-    } else {
-      player.pause();
-    }
-  } else {
-    // Play new track
-    player.src = track.file;
-    currentPlayingFile = track.file;
-    player.play();
-  }
+  roles.forEach(role => {
+    const btn = document.createElement("button");
+    btn.textContent = role;
+    btn.classList.toggle("active", activeCredit === role);
 
-  // Update "now playing" card styling
-  if (currentPlayingEl) {
-    currentPlayingEl.classList.remove("playing");
-  }
-  div.classList.add("playing");
-  currentPlayingEl = div;
-};
-    trackListEl.appendChild(div);
+    // Check if this role would return any results with current genre
+    const hasMatches = tracks.some(track =>
+      track.credits.includes(role) &&
+      (!activeGenre || track.genres.includes(activeGenre))
+    );
+
+    if (!hasMatches) return; // HIDE the button if no matches
+
+    btn.addEventListener("click", () => {
+      activeCredit = activeCredit === role ? null : role;
+      renderFilterButtons();
+      renderTracks();
+    });
+
+    filterButtonsEl.appendChild(btn);
+  });
+
+  genres.forEach(genre => {
+    const btn = document.createElement("button");
+    btn.textContent = genre;
+    btn.classList.toggle("active", activeGenre === genre);
+
+    const hasMatches = tracks.some(track =>
+      track.genres.includes(genre) &&
+      (!activeCredit || track.credits.includes(activeCredit))
+    );
+
+    if (!hasMatches) return; // HIDE the button if no matches
+
+    btn.addEventListener("click", () => {
+      activeGenre = activeGenre === genre ? null : genre;
+      renderFilterButtons();
+      renderTracks();
+    });
+
+    genreButtonsEl.appendChild(btn);
   });
 }
 
@@ -256,7 +285,7 @@ player.addEventListener("play", () => {
   });
 });
 
-
+renderFilterButtons();
 renderTracks();
 
   // Basic accordion toggle

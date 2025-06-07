@@ -215,8 +215,15 @@ function renderTracks() {
       currentPlayingFile = track.file;
     };
 
+    // ✅ Restore glow if it's the current track
+    if (track.file === currentPlayingFile) {
+      div.classList.add("playing");
+      currentPlayingEl = div;
+    }
+
     trackListEl.appendChild(div);
   });
+
 
   // Update buttons in case the filters change what's available
   renderFilterButtons();

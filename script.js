@@ -233,6 +233,8 @@ function renderTracks() {
 function renderFilterButtons() {
   filterButtonsEl.innerHTML = "";
   genreButtonsEl.innerHTML = "";
+  const clearWrapper = document.getElementById("clear-filters-wrapper");
+  clearWrapper.style.display = (activeCredit || activeGenre) ? "block" : "none";
 
   roles.forEach(role => {
     const btn = document.createElement("button");
@@ -294,6 +296,14 @@ player.addEventListener("play", () => {
 
 renderFilterButtons();
 renderTracks();
+
+document.getElementById("clear-filters").addEventListener("click", () => {
+  activeCredit = null;
+  activeGenre = null;
+  renderFilterButtons();
+  renderTracks();
+  document.getElementById("clear-filters-wrapper").style.display = "none";
+});
 
   // Basic accordion toggle
   document.addEventListener("DOMContentLoaded", () => {

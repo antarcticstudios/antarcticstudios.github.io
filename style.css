@@ -417,3 +417,27 @@ main, #app {
 .accordion-item.active .accordion-content {
   display: block;
 }
+
+a:link {
+  color: #ccffff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ccffffaa;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ccffff;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color:#ccffff;
+  background-color: transparent;
+  text-decoration: underline;
+}

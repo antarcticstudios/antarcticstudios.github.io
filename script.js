@@ -315,3 +315,18 @@ document.getElementById("clear-filters").addEventListener("click", () => {
     });
   });
 
+
+function roundToNearest5(num) {
+  return Math.floor(num / 5) * 5;
+}
+
+function updateInstrumentYears() {
+    const currentYear = new Date().getFullYear();
+    const yearsKeys = roundToNearest5(currentYear - 1998);
+    const yearsSax = roundToNearest5(currentYear - 2007);
+
+    document.getElementById('years-keys').textContent = `${yearsKeys} years`;
+    document.getElementById('years-sax').textContent = `${yearsSax} years`;
+  }
+
+  updateInstrumentYears();

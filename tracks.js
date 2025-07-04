@@ -63,6 +63,13 @@ const tracks = [
     credits: ["Mixing", "Mastering"],
     genres: ["Progressive Rock"]
   },
+  {
+    title: "Last II - Never Forget",
+    file: "audio/neverforget.mp4",
+    artwork: "img/portfolio/last2.webp",
+    credits: ["Keyboards"],
+    genres: ["Rock", "Metal"]
+  },
   
   {
     title: "Reggo The God - Birds Eye View",

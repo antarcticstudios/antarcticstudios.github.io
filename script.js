@@ -23,6 +23,8 @@ let currentPlayingFile = null;
 let activeCredit = null;
 let activeGenre = null;
 
+let filteredTracks = [];
+
 
 
 // Render filter buttons
@@ -83,6 +85,8 @@ function renderTracks() {
     const genreMatch = !activeGenre || track.genres.includes(activeGenre);
     return creditMatch && genreMatch;
   });
+
+  filteredTracks = filtered;
 
   filtered.forEach(track => {
     const div = document.createElement("div");
@@ -274,3 +278,38 @@ function enableDragScroll(containerId) {
 }
 // Enable drag scroll on track list
 enableDragScroll("track-list");
+
+function playNext() {
+  const currentIndex = filteredTracks.findIndex(t => t.file === currentPlayingFile);
+  if (currentIndex >= 0 && currentIndex < filteredTracks.length - 1) {
+    playSpecificTrack(filteredTracks[currentIndex + 1]);
+  }
+}
+
+function playPrevious() {
+  const currentIndex = filteredTracks.findIndex(t => t.file === currentPlayingFile);
+  if (currentIndex > 0) {
+    playSpecificTrack(filteredTracks[currentIndex - 1]);
+  }
+}
+function playSpecificTrack(track) {
+  player.src = track.file;
+  player.play();
+  currentPlayingFile = track.file;
+
+  // Update playing UI
+  const cards = document.querySelectorAll(".track");
+  cards.forEach(card => card.classList.remove("playing"));
+  const match = [...cards].find(card =>
+    card.innerHTML.includes(track.title)
+  );
+  if (match) {
+    match.classList.add("playing");
+    currentPlayingEl = match;
+    currentPlayingFile = track.file;
+  }
+}
+
+player.addEventListener("ended", () => {
+  playNext();
+});

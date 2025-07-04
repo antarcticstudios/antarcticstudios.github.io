@@ -475,3 +475,70 @@ a:active {
     display: none;
   }
 }
+
+.gallery-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.gallery-carousel .carousel-item {
+  width: 420px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gallery-carousel .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* ✅ Crops and fills perfectly */
+  object-position: center;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.gallery-carousel .carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-carousel .carousel-item p {
+  display: none; /* Caption hidden on tile, shown in lightbox */
+}
+
+/* Lightbox styling remains the same */
+.gallery-lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10000;
+  padding: 2rem;
+}
+
+.gallery-lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+.gallery-lightbox p {
+  margin-top: 1rem;
+  color: #fff;
+  text-align: center;
+  display: block;               /* ✅ Only show captions here */
+}

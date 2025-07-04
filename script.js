@@ -313,3 +313,39 @@ function playSpecificTrack(track) {
 player.addEventListener("ended", () => {
   playNext();
 });
+
+function renderGallery() {
+  const container = document.getElementById("gallery-container");
+  container.innerHTML = "";
+
+  galleryImages.forEach((img, index) => {
+    const div = document.createElement("div");
+    div.className = "carousel-item";
+    div.onclick = () => openLightbox(index);
+
+    div.innerHTML = `
+      <img src="${img.src}" alt="${img.caption}">
+      <p>${img.caption}</p>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function openLightbox(index) {
+  const lightbox = document.getElementById("lightbox");
+  const imgEl = document.getElementById("lightbox-img");
+  const captionEl = document.getElementById("lightbox-caption");
+
+  const item = galleryImages[index];
+  imgEl.src = item.src;
+  captionEl.textContent = item.caption;
+  lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+// Call this after DOM and galleryImages are ready
+renderGallery();

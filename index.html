@@ -23,6 +23,7 @@
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#reviews">Reviews</a>
+	  <a href="#studio-gallery">Gallery</a>
       <a href="#contact">Contact</a>
       <a href="#equipment">Gear</a>
     </nav>
@@ -93,6 +94,16 @@
 			<div class="elfsight-app-c944c570-0782-463b-af03-2f21bff17cac"></div>
   </section>
 
+  <section id="studio-gallery">
+  <h2 style="text-align: center; margin-bottom: 1rem;">Studio Gallery</h2>
+  <div class="gallery-carousel" id="gallery-container"></div>
+
+  <div id="lightbox" class="gallery-lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-caption"></p>
+  </div>
+</section>
+
   <section id="contact">
     <!-- Your contact form code here -->
      <div class="section-title">
@@ -128,6 +139,7 @@
 							<p><a href="https://credits.muso.ai/profile/aaebb6e7-05ed-4003-8c4b-5f5a7020d2d0">More credits</a></a></p>
             </div>
   </section>
+
 
   <section id="equipment">
     <!-- Your equipment list code here -->
@@ -385,7 +397,9 @@
       nav.classList.toggle('active');
     }
   </script>
-  <script src="tracks.js"></script>
-  <script src="script.js"></script>
+    <script src="gallery.js"></script>
+	<script src="tracks.js"></script>
+	<script src="script.js"></script>
+
 </body>
 </html>

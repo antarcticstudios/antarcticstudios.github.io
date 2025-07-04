@@ -34,31 +34,16 @@ const lightboxCaption = document.getElementById('lightbox-caption');
 
 let currentIndex = 0;
 
-// Handle back button on Android
-window.addEventListener('popstate', (event) => {
-  if (lightbox.style.display === 'flex') {
-    closeLightbox();
-  }
-});
-
 function showLightbox(index) {
   currentIndex = index;
   const { src, caption } = galleryImages[index];
   lightboxImg.src = src;
   lightboxCaption.textContent = caption;
   lightbox.style.display = 'flex';
-
-  // Push a new history state so back button can close the lightbox
-  history.pushState({ lightboxOpen: true }, '');
 }
 
 function closeLightbox() {
   lightbox.style.display = 'none';
-
-  // Only go back in history if lightbox is open via history
-  if (history.state && history.state.lightboxOpen) {
-    history.back(); // Trigger popstate
-  }
 }
 
 function showNextImage() {

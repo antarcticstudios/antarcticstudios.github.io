@@ -76,7 +76,13 @@
 
     <h3>Click or tap on any of the tracks below to listen!</h3>
 
-    <div id="track-list" class="track-grid"></div>
+    <div class="track-nav-wrapper">
+		<button class="scroll-btn left" onclick="scrollTracks(-1)">←</button>
+
+		<div id="track-list" class="track-grid"></div>
+
+		<button class="scroll-btn right" onclick="scrollTracks(1)">→</button>
+	</div>
 
     <audio id="player" controls style="width: 100%; margin-top: 30px;" controlsList="nodownload"></audio>
   </section>

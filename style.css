@@ -441,3 +441,37 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+
+.track-nav-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.scroll-btn {
+  background: #2a2a2a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.scroll-btn:hover {
+  background: #444;
+}
+
+#track-list {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .scroll-btn {
+    display: none;
+  }
+}

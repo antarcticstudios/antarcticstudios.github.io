@@ -227,3 +227,50 @@ function updateInstrumentYears() {
   }
 
   updateInstrumentYears();
+
+function scrollTracks(direction) {
+  const container = document.getElementById("track-list");
+  const scrollAmount = container.offsetWidth * 0.8; // scroll by 80% width
+  container.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+}
+function enableDragScroll(containerId) {
+  const container = document.getElementById(containerId);
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    container.classList.add('dragging');
+    startX = e.pageX;
+    scrollLeft = container.scrollLeft;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    isDown = false;
+    container.classList.remove('dragging');
+  });
+
+  container.addEventListener('mouseup', () => {
+    isDown = false;
+    container.classList.remove('dragging');
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault(); // Prevent text/image selection
+    const x = e.pageX;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeft - walk;
+  });
+
+  // Prevent click from firing after drag
+  container.addEventListener('click', (e) => {
+    if (Math.abs(container.scrollLeft - scrollLeft) > 5) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+}
+// Enable drag scroll on track list
+enableDragScroll("track-list");

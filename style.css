@@ -559,3 +559,35 @@ a:active {
     aspect-ratio: 7 / 5;           /* keep your 350x250 ratio */
   }
 }
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.lightbox-nav.prev {
+  left: 1rem;
+}
+
+.lightbox-nav.next {
+  right: 1rem;
+}

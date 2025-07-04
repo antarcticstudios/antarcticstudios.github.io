@@ -542,3 +542,20 @@ a:active {
   text-align: center;
   display: block;               /* ✅ Only show captions here */
 }
+
+@media (max-width: 768px) {
+  .gallery-carousel {
+    display: grid !important;       /* switch to grid */
+    grid-template-columns: repeat(2, 1fr);  /* 2 equal columns */
+    grid-template-rows: repeat(3, auto);    /* 3 rows */
+    gap: 8px;                      /* same gap you use */
+    overflow-x: visible;           /* remove horizontal scroll */
+    padding: 1rem 8px;
+  }
+
+  .gallery-carousel .carousel-item {
+    width: 100% !important;        /* fill the grid cell */
+    height: auto !important;       /* adjust height to content or fixed aspect ratio */
+    aspect-ratio: 7 / 5;           /* keep your 350x250 ratio */
+  }
+}

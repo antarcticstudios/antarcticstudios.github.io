@@ -41,34 +41,35 @@ window.addEventListener('popstate', (event) => {
   }
 });
 
+let scrollPosition = 0;
+
 function showLightbox(index) {
   currentIndex = index;
   const { src, caption } = galleryImages[index];
+
+  // Save scroll position
+  scrollPosition = window.scrollY;
+
+  // Show lightbox
   lightboxImg.src = src;
   lightboxCaption.textContent = caption;
   lightbox.style.display = 'flex';
 
-  // Push a new history state so back button can close the lightbox
+  // Push history state
   history.pushState({ lightboxOpen: true }, '');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
   lightbox.style.display = 'none';
 
-  // Only go back in history if lightbox is open via history
+  // Restore scroll position after a tick
+  setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+
   if (history.state && history.state.lightboxOpen) {
     history.back(); // Trigger popstate
   }
-}
-
-function showNextImage() {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  showLightbox(currentIndex);
-}
-
-function showPrevImage() {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  showLightbox(currentIndex);
+  document.body.style.overflow = '';
 }
 
 function handleSwipe() {

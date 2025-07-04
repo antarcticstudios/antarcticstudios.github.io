@@ -349,3 +349,10 @@ function closeLightbox() {
 
 // Call this after DOM and galleryImages are ready
 renderGallery();
+
+document.querySelectorAll("#navbar a").forEach(link => {
+  link.addEventListener("click", () => {
+    const nav = document.getElementById("navbar");
+    nav.classList.remove("active");
+  });
+});

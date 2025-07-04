@@ -21,7 +21,7 @@ const galleryImages = [
   },
   {
     src: "img/studiopics/mic.webp",
-    caption: "One of over two dozen high-quality microphones available in the studio — because your sound deserves the right tool for the job."
+    caption: "One of over two dozen high-quality microphones available in the studio - because your sound deserves the right tool for the job."
   },
 
 ];

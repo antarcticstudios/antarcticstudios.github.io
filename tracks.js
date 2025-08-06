@@ -29,10 +29,10 @@ const tracks = [
     genres: ["Pop Punk"]
   },
   {
-    title: "Tyler Montague March - Pink Pony Club",
-    file: "audio/pinkpony.mp3",
-    artwork: "img/portfolio/pinkpony.webp",
-    credits: ["Mastering", "Mixing", "Keyboards", "Engineering", "Produced"],
+    title: "Tyler Montague March - Hellbound",
+    file: "audio/hellbound.mp3",
+    artwork: "img/portfolio/tylermarch_secondact.jpg",
+    credits: ["Mastering", "Mixing", "Keyboards", "Saxophone", "Engineering", "Produced"],
     genres: ["Contemporary Country"]
   },
   {
@@ -48,6 +48,13 @@ const tracks = [
     artwork: "img/portfolio/pwodo.webp",
     credits: ["Keyboards", "Writing", "Produced", "Mastering", "Mixing", "Engineering"],
     genres: ["Progressive Rock"]
+  },
+  {
+    title: "Tyler Montague March - Pink Pony Club",
+    file: "audio/pinkpony.mp3",
+    artwork: "img/portfolio/pinkpony.webp",
+    credits: ["Mastering", "Mixing", "Keyboards", "Engineering", "Produced"],
+    genres: ["Contemporary Country"]
   },
   {
     title: "McVittie - Lone Killer",

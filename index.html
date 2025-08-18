@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Antarctic Music Studios</title>
+  <title>Antarctic Music Studios | Cambridge, Ontario | Keyboard, Saxophone, Mixing & Recording</title>
+  <meta name="keywords" content="music studio, recording studio, Cambridge Ontario, saxophone session, keyboard session, mixing, mastering, synthwave, rock, electronic, session musician, Antarctic Studios, Alex McVittie, live drums, real amps, music production, audio engineering, studio gear, music portfolio, client testimonials, contact, Canada" />
+  <meta name="author" content="Alex McVittie" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="font-awesome.min.css"/>
   <link rel ="icon" type="image/x-icon" href="img/favicon.ico">
@@ -23,7 +25,7 @@
 	  },
 	  "founder": {
 		"@type": "Person",
-		"name": "Alexander McVittie"
+		"name": "Alex McVittie"
 	  },
 	  "sameAs": [
 		"https://instagram.com/antarcticstudios",
@@ -31,13 +33,17 @@
 	  ]
 	}
   </script>
-  <meta name="description" content="Antarctic Music Studios offers professional keyboard and saxophone session tracks, mixing, mastering, and recording services in Cambridge, Ontario.">
+  <meta name="description" content="Antarctic Music Studios in Cambridge, Ontario offers professional keyboard and saxophone session tracks, mixing, mastering, and recording services for rock, synthwave, and electronic music. Run by Alex McVittie, the studio provides live drum tracking, real amp recording, and expert music production for artists across genres.">
 
-  <meta property="og:title" content="Antarctic Music Studios" />
-	<meta property="og:description" content="Killer sax and keys, mixing, mastering & recording in Cambridge, Ontario." />
-	<meta property="og:image" content="https://antarcticstudios.ca/img/intro/headshot.webp" />
-	<meta property="og:url" content="https://antarcticstudios.ca" />
-	<meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:title" content="Antarctic Music Studios | Cambridge, Ontario | Keyboard, Saxophone, Mixing & Recording" />
+  <meta property="og:description" content="Professional music studio in Cambridge, Ontario specializing in saxophone, keyboard, mixing, mastering, and recording. Hear our portfolio and get in touch!" />
+  <meta property="og:image" content="https://antarcticstudios.ca/img/intro/headshot.webp" />
+  <meta property="og:url" content="https://antarcticstudios.ca" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Antarctic Music Studios | Cambridge, Ontario" />
+  <meta name="twitter:description" content="Session keys, sax, mixing, mastering, and recording in Cambridge, Ontario. Hear samples and contact Alex McVittie." />
+  <meta name="twitter:image" content="https://antarcticstudios.ca/img/intro/headshot.webp" />
 </head>
 <body>
   <header>
@@ -83,53 +89,44 @@
       </p>
     </div>
 
-     <img src="img/intro/headshot.webp" alt="Alexander McVittie" />
+     <img src="img/intro/headshot.webp" alt="Alex McVittie – Antarctic Music Studios, Cambridge Ontario" width="320" height="320" loading="lazy">
     
   </section>
 
   <section id="portfolio">
-    <h1>My Music Portfolio</h1>
-    <h2>Filter by Credit</h2>
-    <div class="filter-buttons" id="filter-buttons"></div>
-
-    <h2>Filter by Genre</h2>
-    <div class="filter-buttons" id="genre-buttons"></div>
-
+	<h1>Music Portfolio – Session Work & Production</h1>
+	<h2>Filter by Credit</h2>
+	<div class="filter-buttons" id="filter-buttons"></div>
+	<h2>Filter by Genre</h2>
+	<div class="filter-buttons" id="genre-buttons"></div>
 	<div class="filter-buttons" id="clear-filters-wrapper" style="text-align: center; margin-top: 1rem; display: none;">
-		<button id="clear-filters">
-		  Clear Filters
-		</button>
-	  </div>
-
-    <h3>Click or tap on any of the tracks below to listen!</h3>
-
-    <div class="track-nav-wrapper">
-		<button class="scroll-btn left" onclick="scrollTracks(-1)">←</button>
-
-		<div id="track-list" class="track-grid"></div>
-
-		<button class="scroll-btn right" onclick="scrollTracks(1)">→</button>
+	  <button id="clear-filters">Clear Filters</button>
 	</div>
-
-    <audio id="player" controls style="width: 100%; margin-top: 30px;" controlsList="nodownload"></audio>
+	<h3>Click or tap on any of the tracks below to listen!</h3>
+	<div class="track-nav-wrapper">
+	  <button class="scroll-btn left" onclick="scrollTracks(-1)" aria-label="Scroll left">←</button>
+	  <div id="track-list" class="track-grid"></div>
+	  <button class="scroll-btn right" onclick="scrollTracks(1)" aria-label="Scroll right">→</button>
+	</div>
+	<audio id="player" controls style="width: 100%; margin-top: 30px;" controlsList="nodownload" aria-label="Audio player for music portfolio"></audio>
   </section>
 
   <section id="reviews">
-    <!-- Your reviews & testimonials code here -->
-     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-			<div class="elfsight-app-c944c570-0782-463b-af03-2f21bff17cac"></div>
+	<h3>Read what artists and clients have to say about working at Antarctic Music Studios with Alex McVittie.</h3>
+	<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+	<div class="elfsight-app-c944c570-0782-463b-af03-2f21bff17cac"></div>
   </section>
 
   <section id="studio-gallery">
-  <h2 style="text-align: center; margin-bottom: 1rem;">Studio Gallery</h2>
-  <div class="gallery-carousel" id="gallery-container"></div>
-
-	<div id="lightbox" class="gallery-lightbox">
-	<button id="lightbox-close" class="lightbox-close">&times;</button>
-	<button id="lightbox-prev" class="lightbox-nav prev">&#10094;</button>
-	<img id="lightbox-img" src="" alt="" />
-	<button id="lightbox-next" class="lightbox-nav next">&#10095;</button>
-	<p id="lightbox-caption"></p>
+	<h1 style="text-align: center; margin-bottom: 1rem;">Studio Gallery</h1>
+	<p style="text-align: center;">A look inside Antarctic Music Studios in Cambridge, Ontario. Explore our gear, instruments, and creative space.</p>
+	<div class="gallery-carousel" id="gallery-container" aria-label="Studio Gallery Carousel"></div>
+	<div id="lightbox" class="gallery-lightbox" aria-modal="true" role="dialog">
+	  <button id="lightbox-close" class="lightbox-close" aria-label="Close gallery">&times;</button>
+	  <button id="lightbox-prev" class="lightbox-nav prev" aria-label="Previous image">&#10094;</button>
+	  <img id="lightbox-img" src="" alt="Studio gallery image" />
+	  <button id="lightbox-next" class="lightbox-nav next" aria-label="Next image">&#10095;</button>
+	  <p id="lightbox-caption"></p>
 	</div>
 </section>
 
@@ -137,7 +134,7 @@
     <!-- Your contact form code here -->
      <div class="section-title">
 				<h2>Get in Touch</h2>	
-                <p>Every project is unique. Pricing is available upon request, and we’re happy to work with most budgets to make your vision happen.</p>
+                <p>Every project is unique. Pricing is available upon request, and we’re happy to work with most budgets to make your vision happen. Reach out to discuss your music, session work, or production needs.</p>
 				
 			</div>
 			<form class="contact-form" action="https://formspree.io/f/maylelbk" method="POST">
@@ -171,11 +168,10 @@
 
 
   <section id="equipment">
-    <!-- Your equipment list code here -->
-     <div class="text-center">
-		<h2>Studio Inventory</h2>
-		<br>
-		
+	<h1>Studio Equipment & Gear List</h1>
+	<div class="text-center">
+		<h4>Explore the microphones, instruments, amps, and software available at Antarctic Music Studios. We use professional gear for every session and production.</h4>
+		  <br>
 	</div>
     <br>
 

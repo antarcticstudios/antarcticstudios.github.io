@@ -591,3 +591,41 @@ a:active {
 .lightbox-nav.next {
   right: 1rem;
 }
+
+.col-xs-5-12,
+.col-sm-5-12,
+.col-md-5-12,
+.col-lg-5-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.col-xs-5-12 {
+  width: 20%;
+  float: left;
+}
+@media (min-width: 768px) {
+  .col-sm-5-12 {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-5-12 {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-5-12 {
+    width: 20%;
+    float: left;
+  }
+}
+
+.realColumn {
+  height: 50px;
+  background: #363636;
+  margin: 15px;
+}

@@ -18,7 +18,7 @@ const tracks = [
     title: "Made 4 U (Film) - Romantic String Theme & Credits",
     file: "audio/made4u/Hallmark.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer", "Keyboards", "Orchestration"],
+    credits: ["Film Score Composer", "Keyboards", "Orchestration", "Writing"],
     genres: ["Film Score"]
   },
   
@@ -47,7 +47,7 @@ const tracks = [
     title: "Made 4 U (Film) - Main Title Theme",
     file: "audio/made4u/GlitchIntro.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer","Keyboards"],
+    credits: ["Film Score Composer","Keyboards",  "Writing"],
     genres: ["Film Score"]
   },
   {
@@ -75,7 +75,7 @@ const tracks = [
     title: "Made 4 U (Film) - Soft Piano Cue",
     file: "audio/made4u/Piano.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer", "Keyboards"],
+    credits: ["Film Score Composer", "Keyboards",  "Writing"],
     genres: ["Film Score"]
   },
   {
@@ -103,7 +103,7 @@ const tracks = [
     title: "Made 4 U (Film) - Vaporwave",
     file: "audio/made4u/Vaporwave.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer", "Keyboards"],
+    credits: ["Film Score Composer", "Keyboards",  "Writing"],
     genres: ["Film Score", "Vaporwave"]
   },
   {

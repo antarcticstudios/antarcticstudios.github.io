@@ -87,6 +87,28 @@ function playTrack(track, trackEl) {
   });
 }
 
+function cleanParam(value) {
+  if (!value) return "";
+
+  // Decode %23 → #
+  let decoded = decodeURIComponent(value);
+
+  if (decoded.includes("#")) {
+    let [beforeHash, afterHash] = decoded.split("#");
+
+    // ✅ Schedule hash jump AFTER filters are applied
+    if (afterHash) {
+      setTimeout(() => {
+        window.location.hash = "#" + afterHash;
+      }, 100); 
+    }
+
+    return beforeHash.trim();
+  }
+
+  return decoded.trim();
+}
+
 function renderTracks() {
   trackListEl.innerHTML = "";
 
@@ -376,6 +398,8 @@ function updateFilter(role) {
   } else {
     params.delete("role");
   }
+  // preserve existing section hash if present
+  const hash = window.location.hash || "#portfolio";
 
   window.history.replaceState(
     {},
@@ -395,6 +419,9 @@ function updateGenre(genre) {
   } else {
     params.delete("genre");
   }
+  // preserve existing section hash if present
+  const hash = window.location.hash || "#portfolio";
+
 
   window.history.replaceState(
     {},
@@ -412,15 +439,17 @@ function loadFiltersFromURL() {
 
   if (role) {
     activeCredit = role;
+    activeCredit = cleanParam(activeCredit);
     document.querySelectorAll(".filter-buttons button").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.role === role);
+      btn.classList.toggle("active", btn.dataset.role === activeCredit);
     });
   }
 
   if (genre) {
     activeGenre = genre;
+    activeGenre = cleanParam(activeGenre);
     document.querySelectorAll(".genre-buttons button").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.genre === genre);
+      btn.classList.toggle("active", btn.dataset.genre === activeGenre);
     });
   }
 
@@ -430,6 +459,7 @@ function loadFiltersFromURL() {
 document.addEventListener("DOMContentLoaded", () => {
   loadFiltersFromURL();
 });
+
 document.querySelectorAll("#navbar a").forEach(link => {
   link.addEventListener("click", () => {
     const nav = document.getElementById("navbar");
@@ -437,6 +467,11 @@ document.querySelectorAll("#navbar a").forEach(link => {
   });
 });
 renderGallery();
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    document.querySelector(window.location.hash)?.scrollIntoView({ behavior: "smooth" });
+  }
+});
 
 
 

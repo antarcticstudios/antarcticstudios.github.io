@@ -14,7 +14,7 @@ const trackListEl = document.getElementById("track-list");
 const player = document.getElementById("player");
 const filterButtonsEl = document.getElementById("filter-buttons");
 const genreButtonsEl = document.getElementById("genre-buttons");
-
+import {galleryImages} from './gallery.js';
 
 
 let activeFilters = new Set(); // Start with nothing selected
@@ -414,16 +414,17 @@ function loadFiltersFromURL() {
 
   renderTracks();
 }
-renderGallery();
 // Call this after DOM and galleryImages are ready
 document.addEventListener("DOMContentLoaded", () => {
   loadFiltersFromURL();
 });
-
-
 document.querySelectorAll("#navbar a").forEach(link => {
   link.addEventListener("click", () => {
     const nav = document.getElementById("navbar");
     nav.classList.remove("active");
   });
 });
+renderGallery();
+
+
+

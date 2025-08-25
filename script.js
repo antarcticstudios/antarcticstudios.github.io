@@ -78,6 +78,13 @@ function playTrack(track, trackEl) {
   // Add "playing" class to current card
   trackEl.classList.add("playing");
   currentPlayingEl = trackEl;
+  // 🔥 GA event for play
+  gtag("event", "play_track", {
+    track_title: track.title,
+    artist: track.artist,
+    credits: track.credits.join(", "),
+    genres: track.genres.join(", ")
+  });
 }
 
 function renderTracks() {
@@ -158,6 +165,9 @@ function renderFilterButtons() {
       renderFilterButtons();
       renderTracks();
       updateFilter(role); // Update URL query string
+      gtag("event", "filter_tracks_credit", {
+        role: activeCredit,
+      });
     });
 
     filterButtonsEl.appendChild(btn);
@@ -180,6 +190,9 @@ function renderFilterButtons() {
       renderFilterButtons();
       renderTracks();
       updateGenre(activeGenre)
+      gtag("event", "filter_tracks_genre", {
+        genre: activeGenre,
+      });
     });
 
     genreButtonsEl.appendChild(btn);

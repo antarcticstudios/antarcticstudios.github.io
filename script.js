@@ -154,6 +154,7 @@ function renderFilterButtons() {
       activeCredit = activeCredit === role ? null : role;
       renderFilterButtons();
       renderTracks();
+      updateFilter(role); // Update URL query string
     });
 
     filterButtonsEl.appendChild(btn);
@@ -175,6 +176,7 @@ function renderFilterButtons() {
       activeGenre = activeGenre === genre ? null : genre;
       renderFilterButtons();
       renderTracks();
+      updateGenre(activeGenre)
     });
 
     genreButtonsEl.appendChild(btn);
@@ -203,6 +205,8 @@ document.getElementById("clear-filters").addEventListener("click", () => {
   activeGenre = null;
   renderFilterButtons();
   renderTracks();
+  updateFilter(null)
+  updateGenre(null)
   document.getElementById("clear-filters-wrapper").style.display = "none";
 });
 
@@ -347,8 +351,72 @@ function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
 
+function updateFilter(role) {
+  currentFilter = role;
+
+  const params = new URLSearchParams(window.location.search);
+  if (role) {
+    params.set("role", role);
+  } else {
+    params.delete("role");
+  }
+
+  window.history.replaceState(
+    {},
+    "",
+    `${window.location.pathname}?${params}${window.location.hash}`
+  );
+
+  renderTracks();
+}
+
+function updateGenre(genre) {
+  currentGenre = genre;
+
+  const params = new URLSearchParams(window.location.search);
+  if (genre) {
+    params.set("genre", genre);
+  } else {
+    params.delete("genre");
+  }
+
+  window.history.replaceState(
+    {},
+    "",
+    `${window.location.pathname}?${params}${window.location.hash}`
+  );
+
+  renderTracks();
+}
+
+function loadFiltersFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const role = params.get("role");
+  const genre = params.get("genre");
+
+  if (role) {
+    currentFilter = role;
+    document.querySelectorAll(".filter-buttons button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.role === role);
+    });
+  }
+
+  if (genre) {
+    currentGenre = genre;
+    document.querySelectorAll(".genre-buttons button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.genre === genre);
+    });
+  }
+
+  renderTracks();
+}
+
 // Call this after DOM and galleryImages are ready
-renderGallery();
+document.addEventListener("DOMContentLoaded", () => {
+  renderGallery();
+  loadFiltersFromURL();
+});
+
 
 document.querySelectorAll("#navbar a").forEach(link => {
   link.addEventListener("click", () => {

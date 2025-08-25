@@ -31,6 +31,7 @@ let filteredTracks = [];
 roles.forEach(role => {
   const btn = document.createElement("button");
   btn.textContent = role;
+  btn.dataset.role = role;
 
   btn.addEventListener("click", () => {
     const isActive = btn.classList.toggle("active");
@@ -49,6 +50,7 @@ roles.forEach(role => {
 genres.forEach(genre => {
   const btn = document.createElement("button");
   btn.textContent = genre;
+  btn.dataset.genre = genre;
 
   btn.addEventListener("click", () => {
     const isActive = btn.classList.toggle("active");
@@ -352,7 +354,7 @@ function closeLightbox() {
 }
 
 function updateFilter(role) {
-  currentFilter = role;
+  activeCredit = role;
 
   const params = new URLSearchParams(window.location.search);
   if (role) {
@@ -371,7 +373,7 @@ function updateFilter(role) {
 }
 
 function updateGenre(genre) {
-  currentGenre = genre;
+  activeGenre = genre;
 
   const params = new URLSearchParams(window.location.search);
   if (genre) {
@@ -395,14 +397,14 @@ function loadFiltersFromURL() {
   const genre = params.get("genre");
 
   if (role) {
-    currentFilter = role;
+    activeCredit = role;
     document.querySelectorAll(".filter-buttons button").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.role === role);
     });
   }
 
   if (genre) {
-    currentGenre = genre;
+    activeGenre = genre;
     document.querySelectorAll(".genre-buttons button").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.genre === genre);
     });

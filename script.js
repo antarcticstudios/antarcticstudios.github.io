@@ -14,6 +14,8 @@ const trackListEl = document.getElementById("track-list");
 const player = document.getElementById("player");
 const filterButtonsEl = document.getElementById("filter-buttons");
 const genreButtonsEl = document.getElementById("genre-buttons");
+import {galleryImages} from './gallery.js';
+
 
 let activeFilters = new Set(); // Start with nothing selected
 let activeGenres = new Set();

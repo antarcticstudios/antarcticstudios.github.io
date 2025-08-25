@@ -15,6 +15,14 @@ const tracks = [
     genres: ["Progressive Rock"]
   },
   {
+    title: "Made 4 U (Film) - Romantic String Theme & Credits",
+    file: "audio/made4u/Hallmark and credits.mp3",
+    artwork: "img/portfolio/made4u.jpg",
+    credits: ["Film Score Composer", "Keyboards", "Orchestration"],
+    genres: ["Film Score"]
+  },
+  
+  {
     title: "Last II - Black Hole",
     file: "audio/BlackHole.mp4",
     artwork: "img/portfolio/last2.webp",
@@ -34,6 +42,13 @@ const tracks = [
     artwork: "img/portfolio/tylermarch_secondact.jpg",
     credits: ["Mastering", "Mixing", "Keyboards", "Saxophone", "Engineering", "Produced"],
     genres: ["Contemporary Country"]
+  },
+  {
+    title: "Made 4 U (Film) - Main Title Theme",
+    file: "audio/made4u/GlitchIntro.mp3",
+    artwork: "img/portfolio/made4u.jpg",
+    credits: ["Film Score Composer","Keyboards"],
+    genres: ["Film Score"]
   },
   {
     title: "McVittie - Adrenaline",
@@ -57,6 +72,13 @@ const tracks = [
     genres: ["Contemporary Country"]
   },
   {
+    title: "Made 4 U (Film) - Soft Piano Cue",
+    file: "audio/made4u/Piano.mp3",
+    artwork: "img/portfolio/made4u.jpg",
+    credits: ["Film Score Composer", "Keyboards"],
+    genres: ["Film Score"]
+  },
+  {
     title: "McVittie - Lone Killer",
     file: "audio/LoneKiller.mp3",
     artwork: "img/portfolio/lonekiller.webp",
@@ -77,7 +99,13 @@ const tracks = [
     credits: ["Keyboards"],
     genres: ["Rock", "Metal"]
   },
-  
+  {
+    title: "Made 4 U (Film) - Vaporwave",
+    file: "audio/made4u/Vaporwave.mp3",
+    artwork: "img/portfolio/made4u.jpg",
+    credits: ["Film Score Composer", "Keyboards"],
+    genres: ["Film Score", "Vaporwave"]
+  },
   {
     title: "Reggo The God - Birds Eye View",
     file: "audio/birdseyeview.mp3",
@@ -89,7 +117,7 @@ const tracks = [
     title: "Spectra - Lost At Sea",
     file: "audio/LostAtSea.mp3",
     artwork: "img/portfolio/pwodo.webp",
-    credits: ["Keyboards", "Saxophone", "Writing", "Produced", "Mastering", "Mixing", "Engineering"],
+    credits: ["Keyboards", "Saxophone", "Writing", "Produced", "Mastering", "Mixing", "Engineering",  "Orchestration"],
     genres: ["Progressive Rock"]
   },
   {

@@ -412,10 +412,9 @@ function loadFiltersFromURL() {
 
   renderTracks();
 }
-
+renderGallery();
 // Call this after DOM and galleryImages are ready
 document.addEventListener("DOMContentLoaded", () => {
-  renderGallery();
   loadFiltersFromURL();
 });
 

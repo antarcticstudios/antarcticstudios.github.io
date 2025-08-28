@@ -339,6 +339,7 @@ function playSpecificTrack(track) {
   player.play();
   currentPlayingFile = track.file;
 
+
   // Update playing UI
   const cards = document.querySelectorAll(".track");
   cards.forEach(card => card.classList.remove("playing"));
@@ -350,6 +351,13 @@ function playSpecificTrack(track) {
     currentPlayingEl = match;
     currentPlayingFile = track.file;
   }
+
+    gtag("event", "play_track", {
+    track_title: track.title,
+    artist: track.artist,
+    credits: track.credits.join(", "),
+    genres: track.genres.join(", ")
+  });
 }
 
 player.addEventListener("ended", () => {

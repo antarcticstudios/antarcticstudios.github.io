@@ -146,6 +146,12 @@ function renderTracks() {
       div.classList.add("playing");
       currentPlayingEl = div;
       currentPlayingFile = track.file;
+      gtag("event", "play_track", {
+        track_title: track.title,
+        artist: track.artist,
+        credits: track.credits.join(", "),
+        genres: track.genres.join(", ")
+      });
     };
 
     // ✅ Restore glow if it's the current track
@@ -352,7 +358,7 @@ function playSpecificTrack(track) {
     currentPlayingFile = track.file;
   }
 
-    gtag("event", "play_track", {
+  gtag("event", "play_track", {
     track_title: track.title,
     artist: track.artist,
     credits: track.credits.join(", "),

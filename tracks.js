@@ -44,6 +44,13 @@ const tracks = [
     genres: ["Contemporary Country"]
   },
   {
+    title: "McVittie - Boss Fight",
+    file: "audio/bossfight.mp3",
+    artwork: "img/portfolio/bossfight.webp",
+    credits: ["Keyboards", "Saxophone", "Produced", "Mixing", "Mastering", "Writing", "Engineering"],
+    genres: ["Electronic", "Synthwave"]
+  },  
+  {
     title: "Made 4 U (Film) - Main Title Theme",
     file: "audio/made4u/GlitchIntro.mp3",
     artwork: "img/portfolio/made4u.jpg",

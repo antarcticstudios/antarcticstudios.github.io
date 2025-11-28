@@ -36,7 +36,7 @@ h4 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem !important;
 }
 
 .filter-buttons button {
@@ -46,10 +46,69 @@ h4 {
   padding: 8px 14px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .filter-buttons button.active {
+  background: #436564;
+  border-color: #ccffff;
+}
+
+/* Adjust h4 labels */
+#portfolio h4 {
+  margin-bottom: 0.4rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Make the filter areas more compact */
+.filter-section {
+  margin-bottom: 1rem;
+}
+
+/* Broad categories in horizontal scroll row */
+.filter-row {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 8px;
+  padding-bottom: 6px;
+  scrollbar-width: none;       /* Firefox */
+  justify-content: center;
+}
+.filter-row::-webkit-scrollbar {
+  display: none;               /* Chrome */
+}
+
+.filter-row button {
+  flex: 0 0 auto;
+}
+
+/* Subcategory rows behave normally */
+.sub-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.4rem;
+}
+
+/* Buttons */
+.filter-row button,
+.sub-filter-row button {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.filter-row button.active,
+.sub-filter-row button.active {
   background: #436564;
   border-color: #ccffff;
 }

@@ -209,7 +209,7 @@ const tracks = [
     title: "Spectra - Lost At Sea",
     file: "audio/LostAtSea.mp3",
     artwork: "img/portfolio/pwodo.webp",
-    creditsBroad: ["Session Musician", "Mixing & Mastering", "Production"],
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
     genresBroad: ["Rock"],
     credits: ["Keyboards", "Saxophone", "Writing", "Produced",   "Mixing", "Mastering", "Engineering",  "Orchestration"],
     genres: ["Progressive Rock"]
@@ -218,7 +218,7 @@ const tracks = [
     title: "McVittie - The Final Kill",
     file: "audio/FinalKill_Sax.mp3",
     artwork: "img/portfolio/lonekiller.webp",
-    creditsBroad: ["Session Musician"],
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
     genresBroad: ["Electronic", "Mixing & Mastering", "Production"],
     credits: ["Keyboards", "Saxophone", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
     genres: ["Synthwave"]
@@ -227,7 +227,7 @@ const tracks = [
     title: "Mortrem - Nonfiction",
     file: "audio/nonfiction.mp3",
     artwork: "img/portfolio/Mortrem.webp",
-    creditsBroad: ["Session Musician"],
+    creditsBroad: ["Session & Performance"],
     genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Progressive Rock"]
@@ -236,7 +236,7 @@ const tracks = [
     title: "McVittie - Ionosphere",
     file: "audio/ionosphere.mp3",
     artwork: "img/portfolio/voltage.webp",
-    creditsBroad: ["Session Musician"],
+    creditsBroad: ["Session & Performance"],
     genresBroad: ["Electronic"],
     credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
     genres: ["Synthwave"]

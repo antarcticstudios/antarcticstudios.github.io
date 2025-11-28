@@ -154,6 +154,7 @@ function renderCategory(type) {
       // UPDATE URL
       updateURLParams();
       renderCategory(type);
+      renderCategory(otherType);
       renderTracks();
       updateClearButton();
     };

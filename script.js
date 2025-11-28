@@ -410,6 +410,51 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// =============================================
+// FIX: Instagram/Facebook URLs with %23portfolio
+// + Auto-remove fbclid & brid tracking params
+// =============================================
+(function () {
+  // Parse query params
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+
+  let foundHash = null;
+
+  // Look through ALL parameters for an encoded hash
+  params.forEach((value, key) => {
+    if (value.includes("%23")) {
+      const decoded = decodeURIComponent(value);
+      const i = decoded.indexOf("#");
+      if (i !== -1) {
+        foundHash = decoded.substring(i); // "#portfolio"
+      }
+    }
+  });
+
+  // Remove tracking garbage
+  const trackingParams = ["fbclid", "brid", "gclid", "utm_source", "utm_medium", "utm_campaign"];
+  trackingParams.forEach(p => params.delete(p));
+
+  // Rebuild clean URL
+  let cleanURL = window.location.pathname;
+  const remaining = params.toString();
+  if (remaining) cleanURL += "?" + remaining;
+  if (foundHash) cleanURL += foundHash;
+
+  // Replace URL without reloading page
+  window.history.replaceState({}, "", cleanURL);
+
+  // After URL cleaned: scroll if needed
+  if (foundHash) {
+    window.addEventListener("load", () => {
+      const target = document.querySelector(foundHash);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+})();
 
 // INITIAL RENDER
 loadFiltersFromURL();

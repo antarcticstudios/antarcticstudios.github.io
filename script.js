@@ -1,130 +1,207 @@
-//const roles = ["Mixing", "Mastering", "Producing", "Writing", "Session Keys", "Saxophone"];
-//const genres = ["Pop", "Rock", "Electronic", "Jazz", "Funk"];
+// ============================================================================
+//  HIERARCHICAL FILTERING SYSTEM (CREDITS + GENRES)
+// ============================================================================
 
-// Generate roles and genres dynamically
-const roles = new Set();
-const genres = new Set();
+// Unified filter state
+const state = {
+  credit: {
+    broad: null,
+    sub: null,
+  },
+  genre: {
+    broad: null,
+    sub: null,
+  }
+};
 
-tracks.forEach(track => {
-  track.credits.forEach(role => roles.add(role));
-  track.genres.forEach(genre => genres.add(genre));
-});
-
+// DOM references
 const trackListEl = document.getElementById("track-list");
-const player = document.getElementById("player");
 const filterButtonsEl = document.getElementById("filter-buttons");
+const subCreditButtonsEl = document.getElementById("sub-credit-buttons");
+
 const genreButtonsEl = document.getElementById("genre-buttons");
+const subGenreButtonsEl = document.getElementById("sub-genre-buttons");
 
+const clearWrapper = document.getElementById("clear-filters-wrapper");
+const player = document.getElementById("player");
 
-let activeFilters = new Set(); // Start with nothing selected
-let activeGenres = new Set();
 let currentPlayingEl = null;
 let currentPlayingFile = null;
-
-let activeCredit = null;
-let activeGenre = null;
-
 let filteredTracks = [];
 
 
+// ============================================================================
+//  TRACK MATCHING
+// ============================================================================
+function trackMatches(track, state) {
+  const { credit, genre } = state;
 
-// Render filter buttons
-roles.forEach(role => {
-  const btn = document.createElement("button");
-  btn.textContent = role;
-  btn.dataset.role = role;
+  const broadCreditMatch =
+    !credit.broad || track.creditsBroad.includes(credit.broad);
 
-  btn.addEventListener("click", () => {
-    const isActive = btn.classList.toggle("active");
-    if (isActive) {
-      activeFilters.add(role);
-    } else {
-      activeFilters.delete(role);
-    }
-    renderTracks();
+  const subCreditMatch =
+    !credit.sub || track.credits.includes(credit.sub);
+
+  const broadGenreMatch =
+    !genre.broad || track.genresBroad.includes(genre.broad);
+
+  const subGenreMatch =
+    !genre.sub || track.genres.includes(genre.sub);
+
+  return broadCreditMatch && subCreditMatch && broadGenreMatch && subGenreMatch;
+}
+
+function getFilteredTracks() {
+  return tracks.filter(track => trackMatches(track, state));
+}
+
+
+// ============================================================================
+//  CATEGORY RENDERING (UNIFIED FOR CREDITS + GENRES)
+// ============================================================================
+
+function renderCategory(type) {
+  const isCredit = type === "credit";
+  const hierarchyRoot = isCredit ? heirarchy.creditsBroad : heirarchy.genresBroad;
+
+  const broadContainer = isCredit ? filterButtonsEl : genreButtonsEl;
+  const subContainer = isCredit ? subCreditButtonsEl : subGenreButtonsEl;
+
+  const otherType = isCredit ? "genre" : "credit";
+
+  broadContainer.innerHTML = "";
+  subContainer.innerHTML = "";
+
+  // --- Render broad buttons ---
+  Object.keys(hierarchyRoot).forEach(broad => {
+
+    // Hide if this broad category gives no possible matches
+    const hasMatches = tracks.some(track =>
+      trackMatches(track, {
+        ...state,
+        [type]: { broad, sub: null },
+      })
+    );
+    if (!hasMatches) return;
+
+    const btn = document.createElement("button");
+    btn.textContent = broad;
+    btn.classList.toggle("active", state[type].broad === broad);
+
+    btn.onclick = () => {
+      state[type].broad = state[type].broad === broad ? null : broad;
+      state[type].sub = null;
+      if (type === "credit") {
+        gtag("event", "filter_tracks_credit", {
+          credit: state.credit.broad,
+        });
+      } else {
+        gtag("event", "filter_tracks_genre", {
+          genre: state.genre.broad,
+        });
+      }
+
+      updateURLParams();
+
+      renderCategory(type);
+      renderCategory(otherType);
+      renderTracks();
+      updateClearButton();
+    };
+
+    broadContainer.appendChild(btn);
   });
 
-  filterButtonsEl.appendChild(btn);
-});
+  // No active broad = stop (no sub-buttons rendered)
+  const activeBroad = state[type].broad;
+  if (!activeBroad) return;
 
+  // --- Render sub buttons ---
+  const subs = hierarchyRoot[activeBroad];
 
-genres.forEach(genre => {
-  const btn = document.createElement("button");
-  btn.textContent = genre;
-  btn.dataset.genre = genre;
-
-  btn.addEventListener("click", () => {
-    const isActive = btn.classList.toggle("active");
-    if (isActive) {
-      activeGenres.add(genre);
-    } else {
-      activeGenres.delete(genre);
-    }
-    renderTracks();
-  });
-
-  genreButtonsEl.appendChild(btn);
-});
-
-function playTrack(track, trackEl) {
-  audioPlayer.src = track.src;
-  audioPlayer.play();
-  
-  // Remove "playing" class from any previous card
-  if (currentPlayingEl) {
-    currentPlayingEl.classList.remove("playing");
+  // Only one subitem? Hide subcategory buttons entirely
+  if (subs.length <= 1) {
+    state[type].sub = null;
+    return;
   }
 
-  // Add "playing" class to current card
-  trackEl.classList.add("playing");
-  currentPlayingEl = trackEl;
-  // 🔥 GA event for play
-  gtag("event", "play_track", {
-    track_title: track.title,
-    artist: track.artist,
-    credits: track.credits.join(", "),
-    genres: track.genres.join(", ")
+  subs.forEach(sub => {
+
+    const hasMatches = tracks.some(track =>
+      trackMatches(track, {
+        ...state,
+        [type]: { ...state[type], sub },
+      })
+    );
+    if (!hasMatches) return;
+
+    const btn = document.createElement("button");
+    btn.textContent = sub;
+    btn.classList.toggle("active", state[type].sub === sub);
+
+    btn.onclick = () => {
+      state[type].sub = (state[type].sub === sub ? null : sub);
+      // --- GTAG TRACKING ---
+      if (type === "credit") {
+        gtag("event", "filter_tracks_credit_sub", {
+          sub_credit: state.credit.sub,
+        });
+      } else {
+        gtag("event", "filter_tracks_genre_sub", {
+          sub_genre: state.genre.sub,
+        });
+      }
+      // UPDATE URL
+      updateURLParams();
+      renderCategory(type);
+      renderTracks();
+      updateClearButton();
+    };
+
+    subContainer.appendChild(btn);
   });
 }
 
-function cleanParam(value) {
-  if (!value) return "";
+function updateURLParams() {
+  const params = new URLSearchParams();
 
-  // Decode %23 → #
-  let decoded = decodeURIComponent(value);
+  if (state.credit.broad) params.set("credit_broad", state.credit.broad);
+  if (state.credit.sub)   params.set("credit_sub", state.credit.sub);
 
-  if (decoded.includes("#")) {
-    let [beforeHash, afterHash] = decoded.split("#");
+  if (state.genre.broad) params.set("genre_broad", state.genre.broad);
+  if (state.genre.sub)   params.set("genre_sub", state.genre.sub);
 
-    // ✅ Schedule hash jump AFTER filters are applied
-    if (afterHash) {
-      setTimeout(() => {
-        window.location.hash = "#" + afterHash;
-      }, 100); 
-    }
+  const query = params.toString();
+  const hash = window.location.hash || "#portfolio";
 
-    return beforeHash.trim();
-  }
-
-  return decoded.trim();
+  window.history.replaceState({}, "", `${window.location.pathname}?${query}${hash}`);
 }
 
+function loadFiltersFromURL() {
+  const params = new URLSearchParams(window.location.search);
+
+  state.credit.broad = params.get("credit_broad");
+  state.credit.sub   = params.get("credit_sub");
+
+  state.genre.broad = params.get("genre_broad");
+  state.genre.sub   = params.get("genre_sub");
+}
+
+
+// ============================================================================
+//  TRACK RENDERING
+// ============================================================================
 function renderTracks() {
   trackListEl.innerHTML = "";
 
-  const filtered = tracks.filter(track => {
-    const creditMatch = !activeCredit || track.credits.includes(activeCredit);
-    const genreMatch = !activeGenre || track.genres.includes(activeGenre);
-    return creditMatch && genreMatch;
-  });
+  filteredTracks = getFilteredTracks();
 
-  filteredTracks = filtered;
-
-  filtered.forEach(track => {
+  filteredTracks.forEach(track => {
     const div = document.createElement("div");
     div.className = "track";
+
     div.innerHTML = `
-      <img src="${track.artwork}" alt="${track.title} artwork">
+      <img src="${track.artwork}" alt="${track.title}">
       <div class="track-details">
         <div class="track-title">${track.title}</div>
         <div class="track-credits">${track.credits.join(", ")}</div>
@@ -134,27 +211,19 @@ function renderTracks() {
     `;
 
     div.onclick = () => {
-      const isSameTrack = player.src.includes(track.file);
-      if (isSameTrack) {
+      const same = player.src.includes(track.file);
+
+      if (same) {
         player.paused ? player.play() : player.pause();
       } else {
-        player.src = track.file;
-        player.play();
+        playSpecificTrack(track);
       }
 
       if (currentPlayingEl) currentPlayingEl.classList.remove("playing");
       div.classList.add("playing");
       currentPlayingEl = div;
-      currentPlayingFile = track.file;
-      gtag("event", "play_track", {
-        track_title: track.title,
-        artist: track.artist,
-        credits: track.credits.join(", "),
-        genres: track.genres.join(", ")
-      });
     };
 
-    // ✅ Restore glow if it's the current track
     if (track.file === currentPlayingFile) {
       div.classList.add("playing");
       currentPlayingEl = div;
@@ -163,213 +232,117 @@ function renderTracks() {
     trackListEl.appendChild(div);
   });
 
-
-  // Update buttons in case the filters change what's available
-  renderFilterButtons();
-}
-
-// --- Render credit buttons ---
-function renderFilterButtons() {
-  filterButtonsEl.innerHTML = "";
-  genreButtonsEl.innerHTML = "";
-  const clearWrapper = document.getElementById("clear-filters-wrapper");
-  clearWrapper.style.display = (activeCredit || activeGenre) ? "block" : "none";
-
-  roles.forEach(role => {
-    const btn = document.createElement("button");
-    btn.textContent = role;
-    btn.classList.toggle("active", activeCredit === role);
-
-    // Check if this role would return any results with current genre
-    const hasMatches = tracks.some(track =>
-      track.credits.includes(role) &&
-      (!activeGenre || track.genres.includes(activeGenre))
-    );
-
-    if (!hasMatches) return; // HIDE the button if no matches
-
-    btn.addEventListener("click", () => {
-      activeCredit = activeCredit === role ? null : role;
-      renderFilterButtons();
-      renderTracks();
-      updateFilter(role); // Update URL query string
-      gtag("event", "filter_tracks_credit", {
-        role: activeCredit,
-      });
-    });
-
-    filterButtonsEl.appendChild(btn);
-  });
-
-  genres.forEach(genre => {
-    const btn = document.createElement("button");
-    btn.textContent = genre;
-    btn.classList.toggle("active", activeGenre === genre);
-
-    const hasMatches = tracks.some(track =>
-      track.genres.includes(genre) &&
-      (!activeCredit || track.credits.includes(activeCredit))
-    );
-
-    if (!hasMatches) return; // HIDE the button if no matches
-
-    btn.addEventListener("click", () => {
-      activeGenre = activeGenre === genre ? null : genre;
-      renderFilterButtons();
-      renderTracks();
-      updateGenre(activeGenre)
-      gtag("event", "filter_tracks_genre", {
-        genre: activeGenre,
-      });
-    });
-
-    genreButtonsEl.appendChild(btn);
-  });
+  updateClearButton();
 }
 
 
-player.addEventListener("play", () => {
-  // Try to find and highlight the currently playing track card
-  const cards = document.querySelectorAll(".track");
-  cards.forEach(card => {
-    const img = card.querySelector("img");
-    if (img && player.src.includes(img.src)) {
-      if (currentPlayingEl) currentPlayingEl.classList.remove("playing");
-      card.classList.add("playing");
-      currentPlayingEl = card;
-    }
-  });
-});
+// ============================================================================
+//  CLEAR FILTERS
+// ============================================================================
+function updateClearButton() {
+  const anyActive =
+    state.credit.broad ||
+    state.credit.sub ||
+    state.genre.broad ||
+    state.genre.sub;
 
-renderFilterButtons();
-renderTracks();
+  clearWrapper.style.display = anyActive ? "block" : "none";
+}
 
-document.getElementById("clear-filters").addEventListener("click", () => {
-  activeCredit = null;
-  activeGenre = null;
-  renderFilterButtons();
+document.getElementById("clear-filters").onclick = () => {
+  state.credit.broad = null;
+  state.credit.sub = null;
+  state.genre.broad = null;
+  state.genre.sub = null;
+
+  updateURLParams();
+
+
+  renderCategory("credit");
+  renderCategory("genre");
   renderTracks();
-  updateFilter(null)
-  updateGenre(null)
-  document.getElementById("clear-filters-wrapper").style.display = "none";
+  updateClearButton();
+};
+
+
+// ============================================================================
+//  AUDIO PLAYER + TRACK NAVIGATION
+// ============================================================================
+player.addEventListener("play", () => {
+  const cards = document.querySelectorAll(".track");
+  cards.forEach(card => card.classList.remove("playing"));
+
+  const match = [...cards].find(card =>
+    card.innerHTML.includes(currentPlayingFile)
+  );
+  if (match) match.classList.add("playing");
 });
 
-  // Basic accordion toggle
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".accordion-button").forEach(button => {
-      button.addEventListener("click", () => {
-        const item = button.parentElement;
-        item.classList.toggle("active");
-      });
-    });
+function playSpecificTrack(track) {
+  player.src = track.file;
+  player.play();
+  currentPlayingFile = track.file;
+
+  document.querySelectorAll(".track").forEach(card =>
+    card.classList.remove("playing")
+  );
+
+  gtag("event", "play_track", {
+        track_title: track.title,
+        artist: track.artist,
+        credits: track.credits.join(", "),
+        genres: track.genres.join(", ")
   });
 
+  const card = [...document.querySelectorAll(".track")]
+    .find(c => c.innerHTML.includes(track.title));
 
-function roundToNearest5(num) {
-  return Math.floor(num / 5) * 5;
-}
-
-function updateInstrumentYears() {
-    const currentYear = new Date().getFullYear();
-    const yearsKeys = roundToNearest5(currentYear - 1998);
-    const yearsSax = roundToNearest5(currentYear - 2007);
-
-    document.getElementById('years-keys').textContent = `${yearsKeys} years`;
-    document.getElementById('years-sax').textContent = `${yearsSax} years`;
+  if (card) {
+    card.classList.add("playing");
+    currentPlayingEl = card;
   }
-
-  updateInstrumentYears();
-
-function scrollTracks(direction) {
-  const container = document.getElementById("track-list");
-  const scrollAmount = container.offsetWidth * 0.8; // scroll by 80% width
-  container.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
 }
+
+player.addEventListener("ended", () => {
+  const i = filteredTracks.findIndex(t => t.file === currentPlayingFile);
+  if (i >= 0 && i < filteredTracks.length - 1) {
+    playSpecificTrack(filteredTracks[i + 1]);
+  }
+});
+
+
+// ============================================================================
+//  DRAG SCROLL
+// ============================================================================
 function enableDragScroll(containerId) {
   const container = document.getElementById(containerId);
   let isDown = false;
   let startX;
   let scrollLeft;
 
-  container.addEventListener('mousedown', (e) => {
+  container.addEventListener('mousedown', e => {
     isDown = true;
-    container.classList.add('dragging');
     startX = e.pageX;
     scrollLeft = container.scrollLeft;
   });
 
-  container.addEventListener('mouseleave', () => {
-    isDown = false;
-    container.classList.remove('dragging');
-  });
+  container.addEventListener('mouseleave', () => isDown = false);
+  container.addEventListener('mouseup', () => isDown = false);
 
-  container.addEventListener('mouseup', () => {
-    isDown = false;
-    container.classList.remove('dragging');
-  });
-
-  container.addEventListener('mousemove', (e) => {
+  container.addEventListener('mousemove', e => {
     if (!isDown) return;
-    e.preventDefault(); // Prevent text/image selection
+    e.preventDefault();
     const x = e.pageX;
     const walk = (x - startX) * 1.5;
     container.scrollLeft = scrollLeft - walk;
   });
-
-  // Prevent click from firing after drag
-  container.addEventListener('click', (e) => {
-    if (Math.abs(container.scrollLeft - scrollLeft) > 5) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, true);
 }
-// Enable drag scroll on track list
 enableDragScroll("track-list");
 
-function playNext() {
-  const currentIndex = filteredTracks.findIndex(t => t.file === currentPlayingFile);
-  if (currentIndex >= 0 && currentIndex < filteredTracks.length - 1) {
-    playSpecificTrack(filteredTracks[currentIndex + 1]);
-  }
-}
 
-function playPrevious() {
-  const currentIndex = filteredTracks.findIndex(t => t.file === currentPlayingFile);
-  if (currentIndex > 0) {
-    playSpecificTrack(filteredTracks[currentIndex - 1]);
-  }
-}
-function playSpecificTrack(track) {
-  player.src = track.file;
-  player.play();
-  currentPlayingFile = track.file;
-
-
-  // Update playing UI
-  const cards = document.querySelectorAll(".track");
-  cards.forEach(card => card.classList.remove("playing"));
-  const match = [...cards].find(card =>
-    card.innerHTML.includes(track.title)
-  );
-  if (match) {
-    match.classList.add("playing");
-    currentPlayingEl = match;
-    currentPlayingFile = track.file;
-  }
-
-  gtag("event", "play_track", {
-    track_title: track.title,
-    artist: track.artist,
-    credits: track.credits.join(", "),
-    genres: track.genres.join(", ")
-  });
-}
-
-player.addEventListener("ended", () => {
-  playNext();
-});
-
+// ============================================================================
+//  GALLERY (unchanged)
+// ============================================================================
 function renderGallery() {
   const container = document.getElementById("gallery-container");
   container.innerHTML = "";
@@ -378,114 +351,48 @@ function renderGallery() {
     const div = document.createElement("div");
     div.className = "carousel-item";
     div.onclick = () => openLightbox(index);
-
-    div.innerHTML = `
-      <img src="${img.src}" alt="${img.caption}">
-      <p>${img.caption}</p>
-    `;
-
+    div.innerHTML = `<img src="${img.src}" alt="${img.caption}"><p>${img.caption}</p>`;
     container.appendChild(div);
   });
 }
 
 function openLightbox(index) {
-  const lightbox = document.getElementById("lightbox");
-  const imgEl = document.getElementById("lightbox-img");
-  const captionEl = document.getElementById("lightbox-caption");
-
   const item = galleryImages[index];
-  imgEl.src = item.src;
-  captionEl.textContent = item.caption;
-  lightbox.style.display = "flex";
+  document.getElementById("lightbox-img").src = item.src;
+  document.getElementById("lightbox-caption").textContent = item.caption;
+  document.getElementById("lightbox").style.display = "flex";
 }
 
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
 
-function updateFilter(role) {
-  activeCredit = role;
 
-  const params = new URLSearchParams(window.location.search);
-  if (role) {
-    params.set("role", role);
-  } else {
-    params.delete("role");
-  }
-  // preserve existing section hash if present
-  const hash = window.location.hash || "#portfolio";
-
-  window.history.replaceState(
-    {},
-    "",
-    `${window.location.pathname}?${params}${window.location.hash}`
-  );
-
-  renderTracks();
+// ============================================================================
+//  UTILITY + INITIALIZATION
+// ============================================================================
+function roundToNearest5(num) {
+  return Math.floor(num / 5) * 5;
 }
 
-function updateGenre(genre) {
-  activeGenre = genre;
-
-  const params = new URLSearchParams(window.location.search);
-  if (genre) {
-    params.set("genre", genre);
-  } else {
-    params.delete("genre");
-  }
-  // preserve existing section hash if present
-  const hash = window.location.hash || "#portfolio";
-
-
-  window.history.replaceState(
-    {},
-    "",
-    `${window.location.pathname}?${params}${window.location.hash}`
-  );
-
-  renderTracks();
+function updateInstrumentYears() {
+  const y = new Date().getFullYear();
+  document.getElementById('years-keys').textContent = `${roundToNearest5(y - 1998)} years`;
+  document.getElementById('years-sax').textContent = `${roundToNearest5(y - 2007)} years`;
 }
+updateInstrumentYears();
 
-function loadFiltersFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  const role = params.get("role");
-  const genre = params.get("genre");
-
-  if (role) {
-    activeCredit = role;
-    activeCredit = cleanParam(activeCredit);
-    document.querySelectorAll(".filter-buttons button").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.role === activeCredit);
-    });
-  }
-
-  if (genre) {
-    activeGenre = genre;
-    activeGenre = cleanParam(activeGenre);
-    document.querySelectorAll(".genre-buttons button").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.genre === activeGenre);
-    });
-  }
-
-  renderTracks();
-}
-// Call this after DOM and galleryImages are ready
-document.addEventListener("DOMContentLoaded", () => {
-  loadFiltersFromURL();
-});
-
-document.querySelectorAll("#navbar a").forEach(link => {
-  link.addEventListener("click", () => {
-    const nav = document.getElementById("navbar");
-    nav.classList.remove("active");
-  });
-});
 renderGallery();
+
 window.addEventListener("load", () => {
   if (window.location.hash) {
     document.querySelector(window.location.hash)?.scrollIntoView({ behavior: "smooth" });
   }
 });
 
-
-
+// INITIAL RENDER
+loadFiltersFromURL();
+renderCategory("credit");
+renderCategory("genre");
+renderTracks();
+updateClearButton();

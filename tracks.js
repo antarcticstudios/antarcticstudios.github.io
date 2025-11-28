@@ -1,16 +1,62 @@
+const heirarchy = {
+  creditsBroad: {
+    "Session & Performance":[
+      "Keyboards",
+      "Saxophone"
+    ],
+    "Mixing & Mastering":[
+      "Mixing",
+      "Mastering"
+    ],
+    "Production":[
+      "Produced",
+      "Writing",
+      "Engineering",
+      "Film Scoring",
+      "Orchestration"
+    ],
+  },
+  genresBroad: {
+    "Rock":[
+      "Progressive Rock",
+      "Power Metal",
+      "Metal",
+      "Pop Punk",
+      "Power Ballad"
+    ],
+    "Electronic":[
+      "Synthwave",
+      "Vaporwave"
+    ],
+    "Country":[
+      "Contemporary Country"
+    ],
+    "Film Score":[
+      "Film Score"
+    ],
+    "Hip Hop":[
+      "Hip Hop"
+    ]
+  }
+}
+
 const tracks = [
   {
     title: "Gloryhammer - Wasteland Warrior Hoots Patrol",
     file: "audio/HOOTS.mp3",
     artwork: "img/portfolio/GH_WWHP.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
     credits: ["Saxophone"],
-    genres: ["Rock", "Power Metal"],
+    genres: ["Power Metal"],
     //disclaimer: "Not the official mix.\nCourtesy of XYZ Academy."
   },
   {
     title: "Suite Clarity - Led To Disgrace",
     file: "audio/SuiteClarity.m4a",
     artwork: "img/portfolio/convergence.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Progressive Rock"]
   },
@@ -18,7 +64,9 @@ const tracks = [
     title: "Made 4 U (Film) - Romantic String Theme & Credits",
     file: "audio/made4u/Hallmark.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer", "Keyboards", "Orchestration", "Writing"],
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Film Score"],
+    credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
     genres: ["Film Score"]
   },
   
@@ -26,13 +74,17 @@ const tracks = [
     title: "Last II - Black Hole",
     file: "audio/BlackHole.mp4",
     artwork: "img/portfolio/last2.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
     credits: ["Keyboards"],
-    genres: ["Rock", "Metal"]
+    genres: ["Metal"]
   },
   {
     title: "FXRLY - I'll Be There",
     file: "audio/bthere.mp3",
     artwork: "img/portfolio/FXLRY.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Pop Punk"]
   },
@@ -40,69 +92,98 @@ const tracks = [
     title: "Tyler Montague March - Hellbound",
     file: "audio/hellbound.mp3",
     artwork: "img/portfolio/tylermarch_secondact.jpg",
-    credits: ["Mastering", "Mixing", "Keyboards", "Saxophone", "Engineering", "Produced"],
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
+    genresBroad: ["Country"],
+    credits: ["Mixing", "Mastering", "Keyboards", "Saxophone", "Engineering", "Produced"],
     genres: ["Contemporary Country"]
   },
   {
     title: "McVittie - Boss Fight",
     file: "audio/bossfight.mp3",
     artwork: "img/portfolio/bossfight.webp",
-    credits: ["Keyboards", "Saxophone", "Produced", "Mixing", "Mastering", "Writing", "Engineering"],
-    genres: ["Electronic", "Synthwave"]
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
+    genresBroad: ["Electronic"],
+    credits: ["Keyboards", "Saxophone", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
+    genres: ["Synthwave"]
   },  
   {
     title: "Made 4 U (Film) - Main Title Theme",
     file: "audio/made4u/GlitchIntro.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer","Keyboards",  "Writing"],
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Film Score"],
+    credits: ["Film Scoring", "Keyboards",  "Writing"],
     genres: ["Film Score"]
   },
+  /*{
+    title: "Enrique De Lapaz - Join Me For A Lifetime",
+    file: "audio/JMFALT mix.mp3",
+    artwork: "img/portfolio/JMFALT.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards"],
+    genres: ["Power Ballad"]
+  },*/
   {
     title: "McVittie - Adrenaline",
     file: "audio/Adrenaline.mp3",
     artwork: "img/portfolio/adrenaline.webp",
-    credits: ["Keyboards", "Produced", "Mixing", "Mastering", "Writing", "Engineering"],
-    genres: ["Electronic", "Synthwave"]
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
+    genres: ["Electronic"]
   },
   {
     title: "Spectra - Meridian",
     file: "audio/Meridian.mp3",
     artwork: "img/portfolio/pwodo.webp",
-    credits: ["Keyboards", "Writing", "Produced", "Mastering", "Mixing", "Engineering"],
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Writing", "Produced",   "Mixing", "Mastering", "Engineering"],
     genres: ["Progressive Rock"]
   },
   {
     title: "Tyler Montague March - Pink Pony Club",
     file: "audio/pinkpony.mp3",
     artwork: "img/portfolio/pinkpony.webp",
-    credits: ["Mastering", "Mixing", "Keyboards", "Engineering", "Produced"],
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
+    genresBroad: ["Country"],
+    credits: ["Mixing", "Mastering", "Keyboards", "Engineering", "Produced"],
     genres: ["Contemporary Country"]
   },
   {
     title: "Made 4 U (Film) - Soft Piano Cue",
     file: "audio/made4u/Piano.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer", "Keyboards",  "Writing"],
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Film Score"],
+    credits: ["Film Scoring", "Keyboards",  "Writing"],
     genres: ["Film Score"]
   },
   {
     title: "McVittie - Lone Killer",
     file: "audio/LoneKiller.mp3",
     artwork: "img/portfolio/lonekiller.webp",
-    credits: ["Keyboards", "Produced", "Mixing", "Mastering", "Writing", "Engineering"],
-    genres: ["Electronic", "Synthwave"]
+    creditsBroad: ["Session Musician"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
+    genres: ["Electronic"]
   },
   {
     title: "Crimson Ash - In Twilight",
     file: "audio/InTwilight.mp3",
     artwork: "img/portfolio/meltingsky.webp",
-    credits: ["Mixing", "Mastering"],
+    creditsBroad: ["Session Musician"],
+    genresBroad: ["Rock"],
+    credits: [ "Mixing", "Mastering"],
     genres: ["Progressive Rock"]
   },
   {
     title: "Last II - Never Forget",
     file: "audio/neverforget.mp4",
     artwork: "img/portfolio/last2.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Rock", "Metal"]
   },
@@ -110,34 +191,44 @@ const tracks = [
     title: "Made 4 U (Film) - Vaporwave",
     file: "audio/made4u/Vaporwave.mp3",
     artwork: "img/portfolio/made4u.jpg",
-    credits: ["Film Score Composer", "Keyboards",  "Writing"],
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Electronic", "Film Score"],
+    credits: ["Film Scoring", "Keyboards",  "Writing"],
     genres: ["Film Score", "Vaporwave"]
   },
   {
     title: "Reggo The God - Birds Eye View",
     file: "audio/birdseyeview.mp3",
     artwork: "img/portfolio/birdseye.webp",
-    credits: ["Mastering", "Mixing"],
+    creditsBroad: ["Mixing & Mastering"],
+    genresBroad: ["Hip Hop"],
+    credits: [  "Mixing", "Mastering"],
     genres: ["Hip Hop"]
   },
   {
     title: "Spectra - Lost At Sea",
     file: "audio/LostAtSea.mp3",
     artwork: "img/portfolio/pwodo.webp",
-    credits: ["Keyboards", "Saxophone", "Writing", "Produced", "Mastering", "Mixing", "Engineering",  "Orchestration"],
+    creditsBroad: ["Session Musician", "Mixing & Mastering", "Production"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Saxophone", "Writing", "Produced",   "Mixing", "Mastering", "Engineering",  "Orchestration"],
     genres: ["Progressive Rock"]
   },
   {
     title: "McVittie - The Final Kill",
     file: "audio/FinalKill_Sax.mp3",
     artwork: "img/portfolio/lonekiller.webp",
-    credits: ["Keyboards", "Saxophone", "Produced", "Mixing", "Mastering", "Writing", "Engineering"],
-    genres: ["Electronic", "Synthwave"]
+    creditsBroad: ["Session Musician"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Saxophone", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
+    genres: ["Electronic"]
   },  
   {
     title: "Mortrem - Nonfiction",
     file: "audio/nonfiction.mp3",
     artwork: "img/portfolio/Mortrem.webp",
+    creditsBroad: ["Session Musician"],
+    genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Progressive Rock"]
   },  
@@ -145,7 +236,9 @@ const tracks = [
     title: "McVittie - Ionosphere",
     file: "audio/ionosphere.mp3",
     artwork: "img/portfolio/voltage.webp",
-    credits: ["Keyboards", "Produced", "Mixing", "Mastering", "Writing", "Engineering"],
-    genres: ["Electronic", "Synthwave"]
+    creditsBroad: ["Session Musician"],
+    genresBroad: ["Electronic"],
+    credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
+    genres: ["Synthwave"]
   },
 ];

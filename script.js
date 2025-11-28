@@ -271,7 +271,7 @@ document.getElementById("clear-filters").onclick = () => {
 // ============================================================================
 player.addEventListener("play", () => {
   const cards = document.querySelectorAll(".track");
-  cards.forEach(card => card.classList.remove("playing"));
+  //cards.forEach(card => card.classList.remove("playing"));
 
   const match = [...cards].find(card =>
     card.innerHTML.includes(currentPlayingFile)
@@ -340,6 +340,14 @@ function enableDragScroll(containerId) {
 }
 enableDragScroll("track-list");
 
+function scrollTracks(direction) {
+  const container = document.getElementById("track-list");
+  const amount = container.clientWidth * 0.8; // nice smooth scroll
+  container.scrollBy({
+    left: direction * amount,
+    behavior: "smooth"
+  });
+}
 
 // ============================================================================
 //  GALLERY (unchanged)

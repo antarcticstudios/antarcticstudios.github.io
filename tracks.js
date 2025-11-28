@@ -219,9 +219,9 @@ const tracks = [
     file: "audio/FinalKill_Sax.mp3",
     artwork: "img/portfolio/lonekiller.webp",
     creditsBroad: ["Session Musician"],
-    genresBroad: ["Rock"],
+    genresBroad: ["Electronic", "Mixing & Mastering", "Production"],
     credits: ["Keyboards", "Saxophone", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
-    genres: ["Electronic"]
+    genres: ["Synthwave"]
   },  
   {
     title: "Mortrem - Nonfiction",

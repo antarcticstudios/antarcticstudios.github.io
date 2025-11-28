@@ -399,6 +399,18 @@ window.addEventListener("load", () => {
   }
 });
 
+// Fix Instagram replacing "#" with "%23"
+window.addEventListener("DOMContentLoaded", () => {
+  const decodedHash = decodeURIComponent(window.location.hash);
+
+  if (decodedHash && decodedHash.startsWith("#")) {
+    const target = document.querySelector(decodedHash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
+
 // INITIAL RENDER
 loadFiltersFromURL();
 renderCategory("credit");

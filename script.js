@@ -399,58 +399,50 @@ window.addEventListener("load", () => {
   }
 });
 
-// Fix Instagram replacing "#" with "%23"
-window.addEventListener("DOMContentLoaded", () => {
-  const decodedHash = decodeURIComponent(window.location.hash);
 
-  if (decodedHash && decodedHash.startsWith("#")) {
-    const target = document.querySelector(decodedHash);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-});
 // =============================================
-// FIX: Instagram/Facebook URLs with %23portfolio
-// + Auto-remove fbclid & brid tracking params
+// ROBUST FIX FOR INSTAGRAM/FACEBOOK BROKEN HASHES
 // =============================================
 (function () {
-  // Parse query params
+  const originalURL = window.location.href;
+  let extractedHash = null;
+
+  // 1. If URL contains an encoded hash anywhere (failsafe)
+  const encodedHashMatch = originalURL.match(/%23([A-Za-z0-9\-_]+)/);
+  if (encodedHashMatch) {
+    extractedHash = "#" + encodedHashMatch[1];
+  }
+
+  // 2. If the browser has a real hash, use it instead
+  if (window.location.hash && window.location.hash !== "") {
+    extractedHash = window.location.hash;
+  }
+
+  // Parse URL for cleanup
   const url = new URL(window.location.href);
   const params = url.searchParams;
 
-  let foundHash = null;
+  // 3. Remove tracking parameters
+  ["fbclid", "brid", "gclid", "utm_source", "utm_medium", "utm_campaign"]
+    .forEach(p => params.delete(p));
 
-  // Look through ALL parameters for an encoded hash
-  params.forEach((value, key) => {
-    if (value.includes("%23")) {
-      const decoded = decodeURIComponent(value);
-      const i = decoded.indexOf("#");
-      if (i !== -1) {
-        foundHash = decoded.substring(i); // "#portfolio"
-      }
-    }
-  });
-
-  // Remove tracking garbage
-  const trackingParams = ["fbclid", "brid", "gclid", "utm_source", "utm_medium", "utm_campaign"];
-  trackingParams.forEach(p => params.delete(p));
-
-  // Rebuild clean URL
+  // 4. Rebuild cleaned URL
   let cleanURL = window.location.pathname;
   const remaining = params.toString();
   if (remaining) cleanURL += "?" + remaining;
-  if (foundHash) cleanURL += foundHash;
 
-  // Replace URL without reloading page
+  // IMPORTANT: re-apply hash if we extracted one
+  if (extractedHash) cleanURL += extractedHash;
+
+  // 5. Replace URL without reloading
   window.history.replaceState({}, "", cleanURL);
 
-  // After URL cleaned: scroll if needed
-  if (foundHash) {
+  // 6. Scroll after page loads
+  if (extractedHash) {
     window.addEventListener("load", () => {
-      const target = document.querySelector(foundHash);
+      const target = document.querySelector(extractedHash);
       if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        target.scrollIntoView({ behavior: "smooth" });
       }
     });
   }

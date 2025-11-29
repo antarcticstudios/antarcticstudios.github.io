@@ -251,6 +251,7 @@ function renderTracks() {
         <div class="mobile-track-text">
           <div class="mobile-track-title">${track.title}</div>
           <div class="mobile-track-artist">${track.credits.join(", ")}</div>
+          ${track.disclaimer ? `<div class="mobile-track-disclaimer">${track.disclaimer}</div>` : ""}
         </div>
         <div class="mobile-track-indicator"><i class="fas fa-play"></i></div>
       `;

@@ -811,3 +811,11 @@ audio {
     padding: 6px;
     accent-color: #ccffff; 
 }
+
+.mobile-track-disclaimer {
+  font-size: 0.75rem;
+  color: #b22222;   /* red */
+  margin-top: 4px;
+  line-height: 1.1rem;
+  font-weight: 600; /* optional: slightly bold */
+}

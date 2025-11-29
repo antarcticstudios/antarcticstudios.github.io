@@ -129,9 +129,9 @@ const tracks = [
     file: "audio/Adrenaline.mp3",
     artwork: "img/portfolio/adrenaline.webp",
     creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
-    genresBroad: ["Rock"],
+    genresBroad: ["Electronic"],
     credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
-    genres: ["Electronic"]
+    genres: ["Synthwave"]
   },
   {
     title: "Spectra - Meridian",

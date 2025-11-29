@@ -200,16 +200,21 @@ function renderTracks() {
   filteredTracks.forEach(track => {
     const div = document.createElement("div");
     div.className = "track";
+    div.dataset.file = track.file;   // <--- desktop version of the fix
 
     div.innerHTML = `
-      <img src="${track.artwork}" alt="${track.title}">
-      <div class="track-details">
-        <div class="track-title">${track.title}</div>
-        <div class="track-credits">${track.credits.join(", ")}</div>
-        <div class="track-genres"><strong>Genres:</strong> ${track.genres.join(", ")}</div>
-        ${track.disclaimer ? `<div class="track-disclaimer">${track.disclaimer}</div>` : ""}
+      <!-- Desktop carousel card -->
+      <div class="track-desktop">
+        <img src="${track.artwork}" alt="${track.title}">
+        <div class="track-details">
+          <div class="track-title">${track.title}</div>
+          <div class="track-credits">${track.credits.join(", ")}</div>
+          <div class="track-genres"><strong>Genres:</strong> ${track.genres.join(", ")}</div>
+          ${track.disclaimer ? `<div class="track-disclaimer">${track.disclaimer}</div>` : ""}
+        </div>
       </div>
     `;
+    
 
     div.onclick = () => {
       const same = player.src.includes(track.file);
@@ -231,6 +236,48 @@ function renderTracks() {
     }
 
     trackListEl.appendChild(div);
+    // MOBILE PLAYLIST VERSION
+    const mobileList = document.getElementById("mobile-track-list");
+    mobileList.innerHTML = "";
+
+    filteredTracks.forEach(track => {
+      const row = document.createElement("div");
+      row.className = "mobile-track-row";
+      row.dataset.file = track.file;   // <--- important
+      
+
+      row.innerHTML = `
+        <img class="mobile-track-art" src="${track.artwork}" alt="${track.title}">
+        <div class="mobile-track-text">
+          <div class="mobile-track-title">${track.title}</div>
+          <div class="mobile-track-artist">${track.credits.join(", ")}</div>
+        </div>
+        <div class="mobile-track-indicator"><i class="fas fa-play"></i></div>
+      `;
+
+      row.onclick = () => {
+        const same = player.src.includes(track.file);
+
+        if (same) {
+          // Pause if playing, play if paused
+          player.paused ? player.play() : player.pause();
+        } else {
+          // New track
+          playSpecificTrack(track);
+        }
+
+        // Update visual highlighting
+        document.querySelectorAll(".mobile-track-row")
+          .forEach(r => r.classList.remove("playing"));
+
+        row.classList.add("playing");
+      };
+      if (track.file === currentPlayingFile) {
+        row.classList.add("playing");
+      }
+
+      mobileList.appendChild(row);
+    });
   });
 
   updateClearButton();
@@ -273,10 +320,13 @@ player.addEventListener("play", () => {
   const cards = document.querySelectorAll(".track");
   //cards.forEach(card => card.classList.remove("playing"));
 
-  const match = [...cards].find(card =>
-    card.innerHTML.includes(currentPlayingFile)
-  );
-  if (match) match.classList.add("playing");
+
+
+  // DESKTOP: apply correct highlight
+  const desktopMatch = [...document.querySelectorAll(".track")]
+    .find(card => card.dataset.file === currentPlayingFile);
+
+  if (desktopMatch) desktopMatch.classList.add("playing");
 });
 
 function playSpecificTrack(track) {
@@ -284,9 +334,6 @@ function playSpecificTrack(track) {
   player.play();
   currentPlayingFile = track.file;
 
-  document.querySelectorAll(".track").forEach(card =>
-    card.classList.remove("playing")
-  );
 
   gtag("event", "play_track", {
         track_title: track.title,
@@ -296,19 +343,52 @@ function playSpecificTrack(track) {
   });
 
   const card = [...document.querySelectorAll(".track")]
-    .find(c => c.innerHTML.includes(track.title));
+    .find(c => c.dataset.file === track.file);
 
   if (card) {
     card.classList.add("playing");
     currentPlayingEl = card;
   }
+  // Update mobile playing highlight
+  document.querySelectorAll(".mobile-track-row")
+    .forEach(r => r.classList.remove("playing"));
+
+  const active = [...document.querySelectorAll(".mobile-track-row")]
+    .find(r => r.innerHTML.includes(track.title));
+
+  if (active) active.classList.add("playing");
+
+  // Update mobile highlight
+  document.querySelectorAll(".mobile-track-row")
+    .forEach(r => r.classList.remove("playing"));
+
+  const activeMobile = [...document.querySelectorAll(".mobile-track-row")]
+    .find(r => r.dataset.file === track.file);
+
+  if (activeMobile) activeMobile.classList.add("playing");
 }
 
-player.addEventListener("ended", () => {
-  const i = filteredTracks.findIndex(t => t.file === currentPlayingFile);
-  if (i >= 0 && i < filteredTracks.length - 1) {
-    playSpecificTrack(filteredTracks[i + 1]);
-  }
+player.addEventListener("play", () => {
+  // DESKTOP highlight
+  document.querySelectorAll(".track").forEach(card =>
+    card.classList.remove("playing")
+  );
+
+  const desktopMatch = [...document.querySelectorAll(".track")]
+    .find(card => card.innerHTML.includes(currentPlayingFile));
+
+  renderTracks();
+
+  if (desktopMatch) desktopMatch.classList.add("playing");
+
+  // MOBILE highlight
+  document.querySelectorAll(".mobile-track-row")
+    .forEach(row => row.classList.remove("playing"));
+
+  const mobileMatch = [...document.querySelectorAll(".mobile-track-row")]
+    .find(row => row.dataset.file === currentPlayingFile);
+
+  if (mobileMatch) mobileMatch.classList.add("playing");
 });
 
 

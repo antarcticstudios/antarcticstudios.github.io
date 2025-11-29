@@ -239,7 +239,7 @@ main, #app {
 }
 
 .track.playing {
-  border: 2px solid #ccffff;       /* ✅ Green glow */
+  border: 2px solid #ccffff !important;       /* ✅ Green glow */
   box-shadow: 0 0 10px #ccffffaa;  /* Optional: subtle glow */
 }
 
@@ -688,4 +688,126 @@ a:active {
   height: 50px;
   background: #363636;
   margin: 15px;
+}
+/* MOBILE PLAYLIST HIDDEN ON DESKTOP */
+#mobile-track-list {
+  display: none;
+}
+
+.mobile-track-row {
+  padding: 14px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.mobile-track-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.mobile-track-artist {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  /* hide the entire desktop carousel area */
+  .track-nav-wrapper,
+  #track-list {
+    display: none !important;
+  }
+
+  /* show mobile playlist */
+  #mobile-track-list {
+    display: block;
+  }
+}
+/* MOBILE PLAYLIST HIDDEN ON DESKTOP */
+#mobile-track-list {
+  display: none;
+}
+
+/* CONTAINER — height of 4 tracks */
+@media (max-width: 768px) {
+  #mobile-track-list {
+    display: block;
+    max-height: calc(4 * 90px); /* 4 track rows */
+    overflow-y: auto;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: #000000;
+  }
+}
+
+/* MOBILE ROW */
+.mobile-track-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Remove border on last row */
+.mobile-track-row:last-child {
+  border-bottom: none;
+}
+
+/* ALBUM ART */
+.mobile-track-art {
+  width: 22vw;             /* ~1/4 of screen width */
+  max-width: 90px;         /* limit size */
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* TEXT BLOCK */
+.mobile-track-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* TITLE — bigger + bold */
+.mobile-track-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.1rem;
+  margin-bottom: 3px;
+}
+
+/* CREDITS — smaller */
+.mobile-track-artist {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* PLAY INDICATOR ICON */
+.mobile-track-indicator {
+  width: 30px;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  text-align: center;
+}
+
+/* "PLAYING" STATE */
+.mobile-track-row.playing {
+  background: #171a1a;
+  border: #ccffff
+}
+
+.mobile-track-row.playing .mobile-track-indicator {
+  opacity: 1;
+  color: #ccffff;
+}
+
+audio {
+    width: 100%;
+    border-radius: 10px;
+    padding: 6px;
+    accent-color: #ccffff; 
 }

@@ -330,6 +330,15 @@ player.addEventListener("play", () => {
   if (desktopMatch) desktopMatch.classList.add("playing");
 });
 
+player.addEventListener("ended", () => {
+  if (!filteredTracks || filteredTracks.length === 0) return;
+
+  const index = filteredTracks.findIndex(t => t.file === currentPlayingFile);
+  const nextIndex = (index + 1) % filteredTracks.length;
+
+  playSpecificTrack(filteredTracks[nextIndex]);
+});
+
 function playSpecificTrack(track) {
   player.src = track.file;
   player.play();

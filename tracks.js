@@ -26,7 +26,9 @@ const heirarchy = {
     ],
     "Electronic":[
       "Synthwave",
-      "Vaporwave"
+      "Vaporwave",
+      "Ambient",
+      "Film Score"
     ],
     "Country":[
       "Contemporary Country"

@@ -697,6 +697,7 @@ a:active {
 .mobile-track-row {
   padding: 14px 12px;
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
 }
 
 .mobile-track-title {

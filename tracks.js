@@ -197,6 +197,15 @@ const tracks = [
     genres: ["Film Score", "Vaporwave"]
   },
   {
+    title: "McVittie - Discovery",
+    file: "audio/solar3_discovery.mp3",
+    artwork: "img/portfolio/solariii.webp",
+    creditsBroad: ["Session & Performance", "Production", "Mixing & Mastering"],
+    genresBroad: ["Electronic", "Film Score"],
+    credits: ["Keyboards", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
+    genres: ["Film Score", "Ambient"]
+  },
+  {
     title: "Reggo The God - Birds Eye View",
     file: "audio/birdseyeview.mp3",
     artwork: "img/portfolio/birdseye.webp",

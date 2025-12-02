@@ -115,15 +115,15 @@ const tracks = [
     credits: ["Film Scoring", "Keyboards",  "Writing"],
     genres: ["Film Score"]
   },
-  /*{
-    title: "Enrique De Lapaz - Join Me For A Lifetime",
-    file: "audio/JMFALT mix.mp3",
-    artwork: "img/portfolio/JMFALT.webp",
+  {
+    title: "Our Videotapes - Join Me For A Lifetime",
+    file: "audio/jmfalt.mp3",
+    artwork: "img/portfolio/jmfalt.webp",
     creditsBroad: ["Session & Performance"],
     genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Power Ballad"]
-  },*/
+  },
   {
     title: "McVittie - Adrenaline",
     file: "audio/Adrenaline.mp3",

@@ -167,8 +167,8 @@ const tracks = [
     file: "audio/LoneKiller.mp3",
     artwork: "img/portfolio/lonekiller.webp",
     creditsBroad: ["Session Musician"],
-    genresBroad: ["Rock"],
-    credits: ["Keyboards", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
+    genresBroad: ["Electronic"],
+    credits: ["Keyboards", "Produced",  "Mixing", "Mastering",  "Writing"],
     genres: ["Electronic"]
   },
   {

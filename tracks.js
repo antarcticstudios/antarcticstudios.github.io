@@ -202,7 +202,7 @@ const tracks = [
     artwork: "img/portfolio/solariii.webp",
     creditsBroad: ["Session & Performance", "Production", "Mixing & Mastering"],
     genresBroad: ["Electronic", "Film Score"],
-    credits: ["Keyboards", "Produced",  "Mixing", "Mastering",  "Writing", "Engineering"],
+    credits: ["Keyboards", "Produced",  "Mixing", "Mastering",  "Writing"],
     genres: ["Film Score", "Ambient"]
   },
   {

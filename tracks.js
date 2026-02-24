@@ -262,4 +262,13 @@ const tracks = [
     credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
     genres: ["Synthwave"]
   },
+  {
+    title: "Robot Philosopher - Cosmic Orphan",
+    file: "audio/cosmicorphan.mp3",
+    artwork: "img/portfolio/astralmigration.jpg",
+    creditsBroad: ["Session & Performance", "Production", "Mixing & Mastering"],
+    genresBroad: ["Film Score"],
+    credits: ["Orchestration",  "Mixing", "Mastering", "Writing"],
+    genres: ["Film Score"]
+  }
 ];

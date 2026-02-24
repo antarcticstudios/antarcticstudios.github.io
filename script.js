@@ -507,7 +507,7 @@ function updateInstrumentYears() {
 }
 updateInstrumentYears();
 
-renderGallery();
+//renderGallery();
 
 window.addEventListener("load", () => {
   if (window.location.hash) {

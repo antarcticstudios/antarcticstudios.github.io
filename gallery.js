@@ -1,5 +1,10 @@
 const galleryImages = [
   {
+    "type": "youtube",
+    "videoId": "PR9BYiqWOW8",
+    "caption": "Drum playthrough of a track recorded at Antarctic Studios, showcasing the raw drum tones you can expect to achieve from a session here."
+  },
+  {
     src: "img/studiopics/controlroom.webp",
     caption: "Mix/Control room area with analog gear"
   },
@@ -77,11 +82,29 @@ function handleSwipe() {
 galleryImages.forEach((img, index) => {
   const item = document.createElement('div');
   item.className = 'carousel-item';
-  const image = document.createElement('img');
-  image.src = img.src;
-  image.alt = img.caption;
-  item.appendChild(image);
-  item.onclick = () => showLightbox(index);
+  
+  if (img.type === "youtube") {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${img.videoId}`;
+    iframe.title = img.caption;
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "none";
+    iframe.style.borderRadius = "12px";
+
+    item.appendChild(iframe);
+  } else {
+    const image = document.createElement('img');
+    image.src = img.src;
+    image.alt = img.caption;
+    item.appendChild(image);
+
+    item.onclick = () => showLightbox(index);
+  }
   galleryContainer.appendChild(item);
 });
 

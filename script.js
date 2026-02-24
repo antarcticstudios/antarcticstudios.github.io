@@ -194,15 +194,15 @@ function loadFiltersFromURL() {
 function isLive(track) {
   if (track.ttl) {
     var q = new Date();
-        var m = q.getMonth() + 1;
-        var y = q.getFullYear();
-        var d = q.getDate();
-        var today = `${y}-${m}-${d}`; 
-        var todayDate = new Date(today);
-        var ttlDate = new Date(track.ttl);
-        if (todayDate < ttlDate) {
-          return false;
-        }
+    var m = q.getMonth() + 1;
+    var y = q.getFullYear();
+    var d = q.getDate();
+    var today = `${y}-${m}-${d}`; 
+    var todayDate = new Date(today);
+    var ttlDate = new Date(track.ttl);
+    if (todayDate < ttlDate) {
+      return false;
+    }
   }
   return true;
 }

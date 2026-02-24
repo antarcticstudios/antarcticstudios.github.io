@@ -22,7 +22,8 @@ const heirarchy = {
       "Power Metal",
       "Metal",
       "Pop Punk",
-      "Power Ballad"
+      "Power Ballad",
+      "Nu Metal"
     ],
     "Electronic":[
       "Synthwave",

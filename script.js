@@ -468,7 +468,7 @@ function scrollTracks(direction) {
 // ============================================================================
 //  GALLERY (unchanged)
 // ============================================================================
-function renderGallery() {
+/*function renderGallery() {
   const container = document.getElementById("gallery-container");
   container.innerHTML = "";
 
@@ -479,7 +479,7 @@ function renderGallery() {
     div.innerHTML = `<img src="${img.src}" alt="${img.caption}"><p>${img.caption}</p>`;
     container.appendChild(div);
   });
-}
+}*/
 
 function openLightbox(index) {
   const item = galleryImages[index];

@@ -1,8 +1,8 @@
 const galleryImages = [
   {
-    "type": "youtube",
-    "videoId": "PR9BYiqWOW8",
-    "caption": "Drum playthrough of a track recorded at Antarctic Studios, showcasing the raw drum tones you can expect to achieve from a session here."
+    type: "youtube",
+    videoId: "PR9BYiqWOW8",
+    caption: "Drum playthrough of a track recorded at Antarctic Studios, showcasing the raw drum tones you can expect to achieve from a session here."
   },
   {
     src: "img/studiopics/controlroom.webp",
@@ -31,84 +31,88 @@ const galleryImages = [
 
 ];
 
+document.addEventListener("DOMContentLoaded", () => {
 
-const galleryContainer = document.getElementById('gallery-container');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCaption = document.getElementById('lightbox-caption');
+  const galleryContainer = document.getElementById('gallery-container');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
 
-let currentIndex = 0;
+  let currentIndex = 0;
 
-function showLightbox(index) {
-  currentIndex = index;
-  const { src, caption } = galleryImages[index];
-  lightboxImg.src = src;
-  lightboxCaption.textContent = caption;
-  lightbox.style.display = 'flex';
-}
+  function showLightbox(index) {
+    currentIndex = index;
+    const item = galleryImages[index];
 
-function closeLightbox() {
-  lightbox.style.display = 'none';
-}
+    lightboxImg.style.display = "none";
+    lightboxImg.src = "";
 
-function showNextImage() {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  showLightbox(currentIndex);
-}
+    let existingIframe = document.getElementById("lightbox-video");
+    if (existingIframe) existingIframe.remove();
 
-function showPrevImage() {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  showLightbox(currentIndex);
-}
+    if (item.type === "youtube") {
+      const iframe = document.createElement("iframe");
+      iframe.id = "lightbox-video";
+      iframe.src = `https://www.youtube.com/embed/${item.videoId}?autoplay=1`;
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.style.width = "90%";
+      iframe.style.maxWidth = "1000px";
+      iframe.style.aspectRatio = "16 / 9";
+      iframe.style.borderRadius = "12px";
+      iframe.style.border = "none";
 
-function handleSwipe() {
-  let touchStartX = 0;
-
-  lightbox.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  lightbox.addEventListener('touchend', (e) => {
-    const diffX = e.changedTouches[0].screenX - touchStartX;
-    if (diffX > 50) {
-      showPrevImage();
-    } else if (diffX < -50) {
-      showNextImage();
+      lightbox.appendChild(iframe);
+    } else {
+      lightboxImg.src = item.src;
+      lightboxImg.style.display = "block";
     }
-  });
-}
 
-// Build gallery
-galleryImages.forEach((img, index) => {
-  const item = document.createElement('div');
-  item.className = 'carousel-item';
-  
-  if (img.type === "youtube") {
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${img.videoId}`;
-    iframe.title = img.caption;
-    iframe.allow =
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
+    lightboxCaption.textContent = item.caption;
+    lightbox.style.display = "flex";
+  }
 
-    iframe.style.width = "100%";
-    iframe.style.height = "100%";
-    iframe.style.border = "none";
-    iframe.style.borderRadius = "12px";
+  function closeLightbox() {
+    let iframe = document.getElementById("lightbox-video");
+    if (iframe) iframe.remove();
+    lightbox.style.display = 'none';
+  }
 
-    item.appendChild(iframe);
-  } else {
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showLightbox(currentIndex);
+  }
+
+  function showPrevImage() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showLightbox(currentIndex);
+  }
+
+  // Build gallery
+  galleryImages.forEach((img, index) => {
+    const item = document.createElement('div');
+    item.className = 'carousel-item';
+
     const image = document.createElement('img');
-    image.src = img.src;
+
+    if (img.type === "youtube") {
+      image.src = `https://img.youtube.com/vi/${img.videoId}/maxresdefault.jpg`;
+    } else {
+      image.src = img.src;
+    }
+
     image.alt = img.caption;
     item.appendChild(image);
 
     item.onclick = () => showLightbox(index);
-  }
-  galleryContainer.appendChild(item);
-});
 
-document.getElementById('lightbox-close').onclick = closeLightbox;
-document.getElementById('lightbox-next').onclick = showNextImage;
-document.getElementById('lightbox-prev').onclick = showPrevImage;
-handleSwipe();
+    galleryContainer.appendChild(item);
+  });
+
+  document.getElementById('lightbox-close').onclick = closeLightbox;
+  document.getElementById('lightbox-next').onclick = showNextImage;
+  document.getElementById('lightbox-prev').onclick = showPrevImage;
+
+});
+///handleSwipe();

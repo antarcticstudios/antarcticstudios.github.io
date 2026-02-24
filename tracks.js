@@ -71,7 +71,16 @@ const tracks = [
     credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
     genres: ["Film Score"]
   },
-  
+  {
+    title: "Taking Balfour - Hunting Delusions",
+    file: "audio/hunting.mp3",
+    artwork: "img/portfolio/hunting.jpg",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Orchestration"],
+    genres: ["Nu Metal", "Progressive Rock"],
+    ttl: "2026-02-25"
+  },
   {
     title: "Last II - Black Hole",
     file: "audio/BlackHole.mp4",

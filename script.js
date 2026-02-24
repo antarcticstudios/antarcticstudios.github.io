@@ -201,6 +201,22 @@ function renderTracks() {
     const div = document.createElement("div");
     div.className = "track";
     div.dataset.file = track.file;   // <--- desktop version of the fix
+    if(track.ttl) {
+      var q = new Date();
+      var m = q.getMonth() + 1;
+      var y = q.getFullYear();
+      var d = q.getDate();
+      var today = `${y}-${m}-${d}`; 
+      var todayDate = new Date(today);
+      var ttlDate = new Date(track.ttl);
+      if (todayDate < ttlDate) {
+        return;
+      }
+    }
+       
+    
+
+    track.ttl
 
     div.innerHTML = `
       <!-- Desktop carousel card -->

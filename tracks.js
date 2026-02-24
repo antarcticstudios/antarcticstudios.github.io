@@ -257,7 +257,7 @@ const tracks = [
     title: "McVittie - Ionosphere",
     file: "audio/ionosphere.mp3",
     artwork: "img/portfolio/voltage.webp",
-    creditsBroad: ["Session & Performance"],
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
     genresBroad: ["Electronic"],
     credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
     genres: ["Synthwave"]
@@ -268,7 +268,7 @@ const tracks = [
     artwork: "img/portfolio/astralmigration.jpg",
     creditsBroad: ["Session & Performance", "Production", "Mixing & Mastering"],
     genresBroad: ["Film Score"],
-    credits: ["Orchestration",  "Mixing", "Mastering", "Writing"],
+    credits: ["Orchestration",  "Mixing", "Mastering", "Writing", "Keyboards"],
     genres: ["Film Score"]
   }
 ];

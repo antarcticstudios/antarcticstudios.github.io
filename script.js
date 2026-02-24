@@ -47,8 +47,10 @@ function trackMatches(track, state) {
 
   const subGenreMatch =
     !genre.sub || track.genres.includes(genre.sub);
+  
+  
 
-  return broadCreditMatch && subCreditMatch && broadGenreMatch && subGenreMatch;
+  return broadCreditMatch && subCreditMatch && broadGenreMatch && subGenreMatch && isLive(track);
 }
 
 function getFilteredTracks() {
@@ -189,6 +191,23 @@ function loadFiltersFromURL() {
 }
 
 
+function isLive(track) {
+  if (track.ttl) {
+    var q = new Date();
+        var m = q.getMonth() + 1;
+        var y = q.getFullYear();
+        var d = q.getDate();
+        var today = `${y}-${m}-${d}`; 
+        var todayDate = new Date(today);
+        var ttlDate = new Date(track.ttl);
+        if (todayDate < ttlDate) {
+          return false;
+        }
+  }
+  return true;
+}
+
+
 // ============================================================================
 //  TRACK RENDERING
 // ============================================================================
@@ -201,17 +220,8 @@ function renderTracks() {
     const div = document.createElement("div");
     div.className = "track";
     div.dataset.file = track.file;   // <--- desktop version of the fix
-    if(track.ttl) {
-      var q = new Date();
-      var m = q.getMonth() + 1;
-      var y = q.getFullYear();
-      var d = q.getDate();
-      var today = `${y}-${m}-${d}`; 
-      var todayDate = new Date(today);
-      var ttlDate = new Date(track.ttl);
-      if (todayDate < ttlDate) {
-        return;
-      }
+    if (!isLive(track)) {
+      return; // Skip rendering if not live yet
     }
        
     

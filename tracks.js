@@ -64,15 +64,6 @@ const tracks = [
     genres: ["Progressive Rock"]
   },
   {
-    title: "Made 4 U (Film) - Romantic String Theme & Credits",
-    file: "audio/made4u/Hallmark.mp3",
-    artwork: "img/portfolio/made4u.jpg",
-    creditsBroad: ["Session & Performance", "Production"],
-    genresBroad: ["Film Score"],
-    credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
-    genres: ["Film Score"]
-  },
-  {
     title: "Taking Balfour - Hunting Delusions",
     file: "audio/hunting.mp3",
     artwork: "img/portfolio/hunting.jpg",
@@ -90,6 +81,24 @@ const tracks = [
     genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Metal"]
+  },
+  {
+    title: "Made 4 U (Film) - Romantic String Theme & Credits",
+    file: "audio/made4u/Hallmark.mp3",
+    artwork: "img/portfolio/made4u.jpg",
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Film Score"],
+    credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
+    genres: ["Film Score"]
+  },
+  {
+    title: "Spectra - Meridian",
+    file: "audio/Meridian.mp3",
+    artwork: "img/portfolio/pwodo.webp",
+    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Writing", "Produced",   "Mixing", "Mastering", "Engineering"],
+    genres: ["Progressive Rock"]
   },
   {
     title: "FXRLY - I'll Be There",
@@ -144,15 +153,6 @@ const tracks = [
     genresBroad: ["Electronic"],
     credits: ["Keyboards", "Produced", "Mixing", "Mastering",  "Writing", "Engineering"],
     genres: ["Synthwave"]
-  },
-  {
-    title: "Spectra - Meridian",
-    file: "audio/Meridian.mp3",
-    artwork: "img/portfolio/pwodo.webp",
-    creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
-    genresBroad: ["Rock"],
-    credits: ["Keyboards", "Writing", "Produced",   "Mixing", "Mastering", "Engineering"],
-    genres: ["Progressive Rock"]
   },
   {
     title: "Tyler Montague March - Pink Pony Club",

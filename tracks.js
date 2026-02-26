@@ -76,7 +76,7 @@ const tracks = [
     title: "Taking Balfour - Hunting Delusions",
     file: "audio/hunting.mp3",
     artwork: "img/portfolio/hunting.jpg",
-    creditsBroad: ["Session & Performance"],
+    creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Rock"],
     credits: ["Keyboards", "Orchestration"],
     genres: ["Nu Metal", "Progressive Rock"],

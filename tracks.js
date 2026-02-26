@@ -268,7 +268,7 @@ const tracks = [
     artwork: "img/portfolio/astralmigration.jpg",
     creditsBroad: ["Session & Performance", "Production", "Mixing & Mastering"],
     genresBroad: ["Film Score"],
-    credits: ["Orchestration",  "Mixing", "Mastering", "Writing", "Keyboards"],
+    credits: ["Orchestration",  "Mixing", "Mastering", "Writing", "Keyboards", "Produced"],
     genres: ["Film Score"]
   }
 ];

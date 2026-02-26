@@ -69,7 +69,21 @@ This was added to the portfolio player on Feb 20th, but it did not show up on th
 
 ### gallery.js 
 
-You should only need to modify the `galleryImages` object. 
+You should only need to modify the `galleryImages` object. This now supports YouTube embedded videos. 
+
+```
+  {
+    type: "youtube",
+    videoId: "PR9BYiqWOW8",
+    caption: "Drum playthrough of a track recorded at Antarctic Studios, showcasing the raw drum tones you can expect to achieve from a session here."
+  },
+  {
+    src: "img/studiopics/controlroom.webp",
+    caption: "Mix/Control room area with analog gear"
+  },
+```
+
+When `type: "youtube"` is specified, it will follow a different logic path to display an embedded YouTube video. The videoId field is the identifier in a youtube url (i.e. `https://www.youtube.com/watch?v=[VIDEO ID IS HERE]` ). 
 
 ### style.css 
 

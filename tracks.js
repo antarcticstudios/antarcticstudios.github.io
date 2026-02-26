@@ -83,15 +83,6 @@ const tracks = [
     genres: ["Metal"]
   },
   {
-    title: "Made 4 U (Film) - Romantic String Theme & Credits",
-    file: "audio/made4u/Hallmark.mp3",
-    artwork: "img/portfolio/made4u.jpg",
-    creditsBroad: ["Session & Performance", "Production"],
-    genresBroad: ["Film Score"],
-    credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
-    genres: ["Film Score"]
-  },
-  {
     title: "Spectra - Meridian",
     file: "audio/Meridian.mp3",
     artwork: "img/portfolio/pwodo.webp",
@@ -99,6 +90,15 @@ const tracks = [
     genresBroad: ["Rock"],
     credits: ["Keyboards", "Writing", "Produced",   "Mixing", "Mastering", "Engineering"],
     genres: ["Progressive Rock"]
+  },
+  {
+    title: "Made 4 U (Film) - Romantic String Theme & Credits",
+    file: "audio/made4u/Hallmark.mp3",
+    artwork: "img/portfolio/made4u.jpg",
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Film Score"],
+    credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
+    genres: ["Film Score"]
   },
   {
     title: "FXRLY - I'll Be There",

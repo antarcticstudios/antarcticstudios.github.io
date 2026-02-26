@@ -50,6 +50,23 @@ And on mobile:
 
 I recommend converting your album art to .webp or finding other ways to optimize the file size so that load times are minimal. 
 
+There is also now an optional TTL field. This is great for if you have a song releasing and you want it to appear in your portfolio the day it releases, but you don't want to have to remember to update the portfolio today. You can pop that in and specify the TTL as YYYY-MM-DD format, and it will not appear in the portfolio player until that day. For example, the track Hunting Delusions by Taking Balfour:
+
+```
+  {
+    title: "Taking Balfour - Hunting Delusions",
+    file: "audio/hunting.mp3",
+    artwork: "img/portfolio/hunting.jpg",
+    creditsBroad: ["Session & Performance", "Production"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards", "Orchestration"],
+    genres: ["Nu Metal", "Progressive Rock"],
+    ttl: "2026-02-25"
+  },
+```
+
+This was added to the portfolio player on Feb 20th, but it did not show up on the website until midnight on the 25th, which is the day that it hit streaming platforms. 
+
 ### gallery.js 
 
 You should only need to modify the `galleryImages` object. 

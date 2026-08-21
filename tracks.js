@@ -18,6 +18,7 @@ const heirarchy = {
   },
   genresBroad: {
     "Rock":[
+      "Punk Rock",
       "Progressive Rock",
       "Power Metal",
       "Metal",
@@ -55,15 +56,6 @@ const tracks = [
     //disclaimer: "Not the official mix.\nCourtesy of XYZ Academy."
   },
   {
-    title: "Suite Clarity - Led To Disgrace",
-    file: "audio/SuiteClarity.m4a",
-    artwork: "img/portfolio/convergence.webp",
-    creditsBroad: ["Session & Performance"],
-    genresBroad: ["Rock"],
-    credits: ["Keyboards"],
-    genres: ["Progressive Rock"]
-  },
-  {
     title: "Taking Balfour - Hunting Delusions",
     file: "audio/hunting.mp3",
     artwork: "img/portfolio/hunting.jpg",
@@ -72,6 +64,15 @@ const tracks = [
     credits: ["Keyboards", "Orchestration"],
     genres: ["Nu Metal", "Progressive Rock"],
     ttl: "2026-02-25"
+  },
+  {
+    title: "Uppercut - All My Big Dawgs Go To Heaven",
+    file: "audio/AMBDGTH.mp3",
+    artwork: "img/portfolio/AMBDGTH.jpg",
+    creditsBroad: ["Production"],
+    genresBroad: ["Rock"],
+    credits: ["Engineering", "Produced", "Mixing", "Mastering"],
+    genres: ["Punk Rock"]
   },
   {
     title: "Last II - Black Hole",
@@ -108,6 +109,15 @@ const tracks = [
     genresBroad: ["Rock"],
     credits: ["Keyboards"],
     genres: ["Pop Punk"]
+  },
+  {
+    title: "Suite Clarity - Led To Disgrace",
+    file: "audio/SuiteClarity.m4a",
+    artwork: "img/portfolio/convergence.webp",
+    creditsBroad: ["Session & Performance"],
+    genresBroad: ["Rock"],
+    credits: ["Keyboards"],
+    genres: ["Progressive Rock"]
   },
   {
     title: "Tyler Montague March - Hellbound",

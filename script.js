@@ -231,7 +231,7 @@ function renderTracks() {
     div.innerHTML = `
       <!-- Desktop carousel card -->
       <div class="track-desktop">
-        <img src="${track.artwork}" alt="${track.title}">
+        <img src="${track.artwork}" alt="${track.title}" width="640" height="640" loading="lazy" decoding="async">
         <div class="track-details">
           <div class="track-title">${track.title}</div>
           <div class="track-credits">${track.credits.join(", ")}</div>
@@ -262,49 +262,49 @@ function renderTracks() {
     }
 
     trackListEl.appendChild(div);
-    // MOBILE PLAYLIST VERSION
-    const mobileList = document.getElementById("mobile-track-list");
-    mobileList.innerHTML = "";
+  });
 
-    filteredTracks.forEach(track => {
-      const row = document.createElement("div");
-      row.className = "mobile-track-row";
-      row.dataset.file = track.file;   // <--- important
-      
+  // MOBILE PLAYLIST VERSION
+  const mobileList = document.getElementById("mobile-track-list");
+  mobileList.innerHTML = "";
 
-      row.innerHTML = `
-        <img class="mobile-track-art" src="${track.artwork}" alt="${track.title}">
-        <div class="mobile-track-text">
-          <div class="mobile-track-title">${track.title}</div>
-          <div class="mobile-track-artist">${track.credits.join(", ")}</div>
-          ${track.disclaimer ? `<div class="mobile-track-disclaimer">${track.disclaimer}</div>` : ""}
-        </div>
-        <div class="mobile-track-indicator"><i class="fas fa-play"></i></div>
-      `;
+  filteredTracks.forEach(track => {
+    const row = document.createElement("div");
+    row.className = "mobile-track-row";
+    row.dataset.file = track.file;   // <--- important
 
-      row.onclick = () => {
-        const same = player.src.includes(track.file);
+    row.innerHTML = `
+      <img class="mobile-track-art" src="${track.artwork}" alt="${track.title}" loading="lazy" decoding="async">
+      <div class="mobile-track-text">
+        <div class="mobile-track-title">${track.title}</div>
+        <div class="mobile-track-artist">${track.credits.join(", ")}</div>
+        ${track.disclaimer ? `<div class="mobile-track-disclaimer">${track.disclaimer}</div>` : ""}
+      </div>
+      <div class="mobile-track-indicator"><i class="fas fa-play"></i></div>
+    `;
 
-        if (same) {
-          // Pause if playing, play if paused
-          player.paused ? player.play() : player.pause();
-        } else {
-          // New track
-          playSpecificTrack(track);
-        }
+    row.onclick = () => {
+      const same = player.src.includes(track.file);
 
-        // Update visual highlighting
-        document.querySelectorAll(".mobile-track-row")
-          .forEach(r => r.classList.remove("playing"));
-
-        row.classList.add("playing");
-      };
-      if (track.file === currentPlayingFile) {
-        row.classList.add("playing");
+      if (same) {
+        // Pause if playing, play if paused
+        player.paused ? player.play() : player.pause();
+      } else {
+        // New track
+        playSpecificTrack(track);
       }
 
-      mobileList.appendChild(row);
-    });
+      // Update visual highlighting
+      document.querySelectorAll(".mobile-track-row")
+        .forEach(r => r.classList.remove("playing"));
+
+      row.classList.add("playing");
+    };
+    if (track.file === currentPlayingFile) {
+      row.classList.add("playing");
+    }
+
+    mobileList.appendChild(row);
   });
 
   updateClearButton();
@@ -508,6 +508,30 @@ function updateInstrumentYears() {
 updateInstrumentYears();
 
 //renderGallery();
+
+// ============================================================================
+//  REVIEWS WIDGET (loaded only when the visitor scrolls near it — it is heavy)
+// ============================================================================
+(function () {
+  const section = document.getElementById("reviews");
+  if (!section) return;
+
+  const loadWidget = () => {
+    const s = document.createElement("script");
+    s.src = "https://apps.elfsight.com/p/platform.js";
+    s.defer = true;
+    document.head.appendChild(s);
+  };
+
+  if (!("IntersectionObserver" in window)) return loadWidget();
+
+  const observer = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    observer.disconnect();
+    loadWidget();
+  }, { rootMargin: "800px" });
+  observer.observe(section);
+})();
 
 window.addEventListener("load", () => {
   if (window.location.hash) {

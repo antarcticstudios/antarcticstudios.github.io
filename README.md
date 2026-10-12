@@ -56,7 +56,7 @@ There is also now an optional TTL field. This is great for if you have a song re
   {
     title: "Taking Balfour - Hunting Delusions",
     file: "audio/hunting.mp3",
-    artwork: "img/portfolio/hunting.jpg",
+    artwork: "img/portfolio/hunting.webp",
     creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Rock"],
     credits: ["Keyboards", "Orchestration"],

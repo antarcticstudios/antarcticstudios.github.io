@@ -58,7 +58,7 @@ const tracks = [
   {
     title: "Taking Balfour - Hunting Delusions",
     file: "audio/hunting.mp3",
-    artwork: "img/portfolio/hunting.jpg",
+    artwork: "img/portfolio/hunting.webp",
     creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Rock"],
     credits: ["Keyboards", "Orchestration"],
@@ -68,7 +68,7 @@ const tracks = [
   {
     title: "Uppercut - All My Big Dawgs Go To Heaven",
     file: "audio/AMBDGTH.mp3",
-    artwork: "img/portfolio/AMBDGTH.jpg",
+    artwork: "img/portfolio/AMBDGTH.webp",
     creditsBroad: ["Production"],
     genresBroad: ["Rock"],
     credits: ["Engineering", "Produced", "Mixing", "Mastering"],
@@ -95,7 +95,7 @@ const tracks = [
   {
     title: "Made 4 U (Film) - Romantic String Theme & Credits",
     file: "audio/made4u/Hallmark.mp3",
-    artwork: "img/portfolio/made4u.jpg",
+    artwork: "img/portfolio/made4u.webp",
     creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Film Score"],
     credits: ["Film Scoring", "Keyboards", "Orchestration", "Writing"],
@@ -122,7 +122,7 @@ const tracks = [
   {
     title: "Tyler Montague March - Hellbound",
     file: "audio/hellbound.mp3",
-    artwork: "img/portfolio/tylermarch_secondact.jpg",
+    artwork: "img/portfolio/tylermarch_secondact.webp",
     creditsBroad: ["Session & Performance", "Mixing & Mastering", "Production"],
     genresBroad: ["Country"],
     credits: ["Mixing", "Mastering", "Keyboards", "Saxophone", "Engineering", "Produced"],
@@ -140,7 +140,7 @@ const tracks = [
   {
     title: "Made 4 U (Film) - Main Title Theme",
     file: "audio/made4u/GlitchIntro.mp3",
-    artwork: "img/portfolio/made4u.jpg",
+    artwork: "img/portfolio/made4u.webp",
     creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Film Score"],
     credits: ["Film Scoring", "Keyboards",  "Writing"],
@@ -176,7 +176,7 @@ const tracks = [
   {
     title: "Made 4 U (Film) - Soft Piano Cue",
     file: "audio/made4u/Piano.mp3",
-    artwork: "img/portfolio/made4u.jpg",
+    artwork: "img/portfolio/made4u.webp",
     creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Film Score"],
     credits: ["Film Scoring", "Keyboards",  "Writing"],
@@ -212,7 +212,7 @@ const tracks = [
   {
     title: "Made 4 U (Film) - Vaporwave",
     file: "audio/made4u/Vaporwave.mp3",
-    artwork: "img/portfolio/made4u.jpg",
+    artwork: "img/portfolio/made4u.webp",
     creditsBroad: ["Session & Performance", "Production"],
     genresBroad: ["Electronic", "Film Score"],
     credits: ["Film Scoring", "Keyboards",  "Writing"],
@@ -275,7 +275,7 @@ const tracks = [
   {
     title: "Robot Philosopher - Cosmic Orphan",
     file: "audio/cosmicorphan.mp3",
-    artwork: "img/portfolio/astralmigration.jpg",
+    artwork: "img/portfolio/astralmigration.webp",
     creditsBroad: ["Session & Performance", "Production", "Mixing & Mastering"],
     genresBroad: ["Film Score"],
     credits: ["Orchestration",  "Mixing", "Mastering", "Writing", "Keyboards", "Produced"],

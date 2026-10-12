@@ -103,6 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     image.alt = img.caption;
+    image.loading = "lazy";
+    image.decoding = "async";
     item.appendChild(image);
 
     item.onclick = () => showLightbox(index);

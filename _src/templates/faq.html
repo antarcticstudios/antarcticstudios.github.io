@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- GENERATED FILE — do not edit by hand. Edit _src/content.json or _src/templates/faq.html and rebuild with the site editor. -->
+<html lang="en">
+<head>
+	<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{site.analyticsId}}"></script>
+  <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', '{{site.analyticsId}}');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{faq.seoTitle}}</title>
+  <meta name="keywords" content="{{site.keywords}}" />
+  <meta name="author" content="{{site.author}}" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel ="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/touch.png">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <!-- Icon font loads without blocking the first paint -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/></noscript>
+
+  <script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "MusicRecordingStudio",
+	  "name": "Antarctic Music Studios",
+	  "url": "https://antarcticstudios.ca",
+	  "address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Cambridge",
+		"addressRegion": "ON",
+		"addressCountry": "CA"
+	  },
+	  "founder": {
+		"@type": "Person",
+		"name": "{{site.author}}"
+	  },
+	  "sameAs": [
+		"{{contact.instagram}}",
+		"{{contact.facebook}}"
+	  ]
+	}
+  </script>
+  <meta name="description" content="{{faq.seoDescription}}">
+
+  <meta property="og:title" content="{{site.ogTitle}}" />
+  <meta property="og:description" content="{{site.ogDescription}}" />
+  <meta property="og:image" content="{{site.ogImage}}" />
+  <meta property="og:url" content="https://antarcticstudios.ca" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{site.twitterTitle}}" />
+  <meta name="twitter:description" content="{{site.twitterDescription}}" />
+  <meta name="twitter:image" content="{{site.ogImage}}" />
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="img/intro/logo.webp" alt="Antarctic Music Studios logo" width="220" height="51"></div>
+    <div class="menu-toggle" onclick="toggleMenu()" role="button" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="navbar">
+      <a href="/">About</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="/#reviews">Reviews</a>
+	  <a href="/#studio-gallery">Gallery</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#equipment">Gear</a>
+	  <a href="faq">FAQ and Policies</a>
+    </nav>
+  </header>
+
+
+
+
+	<section id="studio-gallery" style="padding-left: 50px; padding-right: 50px;">
+	<br><br><br><br><br><br>
+
+		<h2 style="text-align: center; margin-bottom: 1rem;">{{faq.heading}}</h2>
+
+{{#each faq.sections}}		<h3>{{title}}</h3>
+		<p>
+		{{body}}
+		</p>
+		<br>
+
+{{/each}}
+	</section>
+
+  <section id="contact">
+    <!-- Your contact form code here -->
+     <div class="section-title">
+				<h2>{{faq.contactHeading}}</h2>
+                <p>{{faq.contactBlurb}}</p>
+
+			</div>
+			<form class="contact-form" action="{{contact.formAction}}" method="POST">
+				<div class="row">
+					<div class="col-lg-4">
+						<input type="text" placeholder="Your Name" name="name" required>
+					</div>
+					<div class="col-lg-4">
+						<input type="text" placeholder="Your E-mail" name="_replyto" required>
+					</div>
+					<div class="col-lg-4">
+						<input type="text" placeholder="Subject" name="subject" required>
+					</div>
+					<div class="col-lg-12">
+						<input type="text" placeholder="Message" name="msg" required>
+						<div class="text-center">
+							<button class="site-btn" value="Send">SEND IT!</button>
+						</div>
+					</div>
+				</div>
+			</form>
+            <div class="ft-contact-widget">
+            <p><a href="{{contact.instagram}}" target="_blank"><i class="fa-brands fa-instagram"> </i> @antarcticstudios</a></p>
+							<p><a href="{{contact.facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i> @antarcticstudios </a></p>
+							<p><a href="mailto:{{contact.email}}"><i class="fa fa-envelope"></i> {{contact.email}}</a></p>
+							<p><a href="tel:{{contact.phoneHref}}"><i class="fa fa-phone"></i> {{contact.phone}}</a></p>
+							<p><a href="{{contact.mapUrl}}" target="_blank"><i class="fa-solid fa-map-pin"></i> {{contact.address}}</a></p>
+							<br>
+							<p><a href="{{contact.musoUrl}}" target="_blank">More credits</a></a></p>
+            </div>
+  </section>
+
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('active');
+    }
+  </script>
+    <script src="gallery.js" defer></script>
+	<script src="tracks.js" defer></script>
+	<script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,7 +1,36 @@
+/* ============================================================
+   Brand colours — edited by the site editor's Colours tab.
+   Every colour on the site references one of these variables.
+   ============================================================ */
+:root {
+  --accent: #ccffff;            /* brand colour: links, buttons, highlights */
+  --accent-soft: #ccffffaa;     /* brand colour w/ transparency: glows, visited links */
+  --accent-active: #436564;     /* active filter button fill */
+  --accent-contrast: #1b1b1b;   /* text on brand-coloured buttons */
+  --page-bg: #121212;           /* page background */
+  --backdrop: #000000;          /* hero & mobile playlist background */
+  --card-bg: #1e1e1e;           /* track card background */
+  --button-bg: #2a2a2a;         /* button background */
+  --button-border: #444444;     /* button border & hover */
+  --tooltip-bg: #333333;        /* tooltip background & accordion border */
+  --panel: #363636;             /* gear list header bar */
+  --playing-bg: #171a1a;        /* now-playing row background (mobile) */
+  --overlay: rgba(0, 0, 0, 0.7);        /* header & hero text overlay */
+  --overlay-strong: rgba(0, 0, 0, 0.9); /* lightbox & mobile menu overlay */
+  --text: #ffffff;              /* main text */
+  --text-muted: #cccccc;        /* secondary text (track credits) */
+  --text-subtle: #aaaaaa;       /* tertiary text (track genres) */
+  --form-line: #c0c0c0;         /* contact form underline */
+  --form-placeholder: #acacac;  /* contact form placeholder text */
+  --row-line: #e0e0e0;          /* mobile playlist dividers */
+  --danger: #ff6666;            /* disclaimer text */
+  --danger-strong: #b22222;     /* disclaimer text (mobile) */
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #121212;
-  color: #fff;
+  background: var(--page-bg);
+  color: var(--text);
   margin: 0;
 }
 
@@ -40,9 +69,9 @@ h4 {
 }
 
 .filter-buttons button {
-  background: #2a2a2a;
-  color: #fff;
-  border: 1px solid #444;
+  background: var(--button-bg);
+  color: var(--text);
+  border: 1px solid var(--button-border);
   padding: 8px 14px;
   border-radius: 20px;
   cursor: pointer;
@@ -50,12 +79,12 @@ h4 {
 }
 
 .filter-buttons button.active {
-  background: #436564;
-  border-color: #ccffff;
+  background: var(--accent-active);
+  border-color: var(--accent);
 }
 
-/* Adjust h4 labels */
-#portfolio h4 {
+/* Filter labels */
+#portfolio .filter-label {
   margin-bottom: 0.4rem;
   margin-top: 1rem;
   text-align: center;
@@ -97,9 +126,9 @@ h4 {
 /* Buttons */
 .filter-row button,
 .sub-filter-row button {
-  background: #2a2a2a;
-  color: #fff;
-  border: 1px solid #444;
+  background: var(--button-bg);
+  color: var(--text);
+  border: 1px solid var(--button-border);
   padding: 6px 12px;
   border-radius: 14px;
   font-size: 0.68rem;
@@ -109,13 +138,13 @@ h4 {
 
 .filter-row button.active,
 .sub-filter-row button.active {
-  background: #436564;
-  border-color: #ccffff;
+  background: var(--accent-active);
+  border-color: var(--accent);
 }
 
 
 .track {
-  background: #1e1e1e;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -162,12 +191,12 @@ h4 {
 
 .track-credits {
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--text-muted);
 }
 
 .track-disclaimer {
   font-size: 0.75rem;
-  color: #f66;
+  color: var(--danger);
   margin-top: 0.5rem;
 }
 
@@ -176,8 +205,8 @@ h4 {
   opacity: 0;
   position: absolute;
   bottom: 100%;
-  background: #333;
-  color: #fff;
+  background: var(--tooltip-bg);
+  color: var(--text);
   padding: 0.5rem;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -196,13 +225,13 @@ h4 {
 }
 .track-genres {
   font-size: 0.8rem;
-  color: #aaa;
+  color: var(--text-subtle);
   margin-top: 0.25rem;
 }
 .ft-contact-widget {
   padding: 2em;
   text-align:  center;
-  color: #ccffffaa
+  color: var(--accent-soft)
 }
 
 @media (max-width: 600px) {
@@ -239,17 +268,17 @@ main, #app {
 }
 
 .track.playing {
-  border: 2px solid #ccffff !important;       /* ✅ Green glow */
-  box-shadow: 0 0 10px #ccffffaa;  /* Optional: subtle glow */
+  border: 2px solid var(--accent) !important;       /* ✅ Green glow */
+  box-shadow: 0 0 10px var(--accent-soft);  /* Optional: subtle glow */
 }
 
    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; scroll-behavior: smooth; background: #121212; color: #fff; }
+    body { font-family: Arial, sans-serif; scroll-behavior: smooth; background: var(--page-bg); color: var(--text); }
     header {
       position: fixed;
       width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
+      background: var(--overlay);
+      color: var(--text);
       z-index: 1000;
       padding: 1rem;
       display: flex;
@@ -261,7 +290,7 @@ main, #app {
       gap: 1rem;
     }
     nav a {
-      color: white;
+      color: var(--text);
       text-decoration: none;
       font-weight: bold;
     }
@@ -272,7 +301,7 @@ main, #app {
       nav {
         display: none;
         flex-direction: column;
-        background: rgba(0,0,0,0.9);
+        background: var(--overlay-strong);
         position: absolute;
         top: 60px;
         right: 10px;
@@ -288,9 +317,9 @@ main, #app {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: white;
+      color: var(--text);
       position: relative;
-      background: black;
+      background: var(--backdrop);
       overflow: hidden;
       gap: 20px;
     padding: 100px 40px;
@@ -301,7 +330,7 @@ main, #app {
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: 0;
-      animation: fade 60s infinite;
+      background-image: url('img/intro/faderport.webp');
       background-size: cover;
       background-position: center;
       filter: brightness(0.4) blur(4px);
@@ -311,7 +340,7 @@ main, #app {
       position: relative;
       z-index: 1;
       max-width: 600px;
-      background: rgba(0, 0, 0, 0.7);
+      background: var(--overlay);
       padding: 20px;
       border-radius: 10px;
     }
@@ -326,16 +355,19 @@ main, #app {
 }
 .intro img {
   max-width: 400px;
+  height: auto;
   border-radius: 12px;
   z-index: 100;
   position: relative;
   margin-left: 50px;
 }
 .content h1 { margin-bottom: 1rem; }
-
-@keyframes fade {
-  0% { background-image: url('img/intro/faderport.webp'); }
-  100% { background-image: url('img/intro/faderport.webp'); }
+.content .tagline {
+  font-size: 1.17em;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -377,7 +409,7 @@ main, #app {
 	height: 4px;
 	left: 0;
 	bottom: 0;
-	background: #ccffff;
+	background: var(--accent);
 	z-index: 2;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
@@ -390,10 +422,10 @@ main, #app {
 	border: none;
 	font-size: 14px;
 	padding-bottom: 23px;
-	border-bottom: 1px solid #c0c0c0;
+	border-bottom: 1px solid var(--form-line);
 	background-color: transparent;
 	margin-bottom: 65px;
-	color: #acacac;
+	color: var(--form-placeholder);
 }
 
 .contact-form textarea {
@@ -403,22 +435,22 @@ main, #app {
 }
 
 .contact-form ::-webkit-input-placeholder {
-	color: #acacac;
+	color: var(--form-placeholder);
 	font-style: italic;
 }
 
 .contact-form :-ms-input-placeholder {
-	color: #acacac;
+	color: var(--form-placeholder);
 	font-style: italic;
 }
 
 .contact-form ::-ms-input-placeholder {
-	color: #acacac;
+	color: var(--form-placeholder);
 	font-style: italic;
 }
 
 .contact-form ::placeholder {
-	color: #acacac;
+	color: var(--form-placeholder);
 	font-style: italic;
 }
 
@@ -427,11 +459,11 @@ main, #app {
 	border: none;
 	font-size: 18px;
 	font-weight: 700;
-	color: #1b1b1b;
+	color: var(--accent-contrast);
 	min-width: 146px;
 	padding: 9px 10px;
 	border-radius: 5px;
-	background: #ccffff;
+	background: var(--accent);
 	cursor: pointer;
     margin: auto;
 }
@@ -450,14 +482,14 @@ main, #app {
 .accordion-item {
   display: flex;
   flex-direction: column;
-  background-color: #1e1e1e;
+  background-color: var(--card-bg);
   border-radius: 8px;
   overflow: hidden;
 }
 
 .accordion-button {
   background: #292929;
-  color: #fff;
+  color: var(--text);
   padding: 1rem;
   border: none;
   cursor: pointer;
@@ -471,7 +503,7 @@ main, #app {
   display: none;
   padding: 1rem;
   background: #1a1a1a;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--tooltip-bg);
 }
 
 .accordion-item.active .accordion-content {
@@ -479,25 +511,25 @@ main, #app {
 }
 
 a:link {
-  color: #ccffff;
+  color: var(--accent);
   background-color: transparent;
   text-decoration: none;
 }
 
 a:visited {
-  color: #ccffffaa;
+  color: var(--accent-soft);
   background-color: transparent;
   text-decoration: none;
 }
 
 a:hover {
-  color: #ccffff;
+  color: var(--accent);
   background-color: transparent;
   text-decoration: underline;
 }
 
 a:active {
-  color:#ccffff;
+  color:var(--accent);
   background-color: transparent;
   text-decoration: underline;
 }
@@ -512,8 +544,8 @@ a:active {
 }
 
 .scroll-btn {
-  background: #2a2a2a;
-  color: white;
+  background: var(--button-bg);
+  color: var(--text);
   border: none;
   padding: 8px 12px;
   font-size: 1.2rem;
@@ -523,7 +555,7 @@ a:active {
 }
 
 .scroll-btn:hover {
-  background: #444;
+  background: var(--button-border);
 }
 
 #track-list {
@@ -582,7 +614,7 @@ a:active {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.9);
+  background: var(--overlay-strong);
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -598,7 +630,7 @@ a:active {
 
 .gallery-lightbox p {
   margin-top: 1rem;
-  color: #fff;
+  color: var(--text);
   text-align: center;
   display: block;               /* ✅ Only show captions here */
 }
@@ -625,7 +657,7 @@ a:active {
   top: 1rem;
   right: 1rem;
   background: none;
-  color: white;
+  color: var(--text);
   font-size: 2rem;
   border: none;
   cursor: pointer;
@@ -637,7 +669,7 @@ a:active {
   top: 50%;
   transform: translateY(-50%);
   background: none;
-  color: white;
+  color: var(--text);
   font-size: 2rem;
   border: none;
   cursor: pointer;
@@ -686,8 +718,16 @@ a:active {
 
 .realColumn {
   height: 50px;
-  background: #363636;
+  background: var(--panel);
   margin: 15px;
+}
+.realColumn h3 {
+  font-size: 1.5em;
+}
+.equipment-blurb {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 /* MOBILE PLAYLIST HIDDEN ON DESKTOP */
 #mobile-track-list {
@@ -696,7 +736,7 @@ a:active {
 
 .mobile-track-row {
   padding: 14px 12px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--row-line);
   cursor: pointer;
 }
 
@@ -736,9 +776,9 @@ a:active {
     max-height: calc(4 * 90px); /* 4 track rows */
     overflow-y: auto;
     margin-top: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--text-muted);
     border-radius: 12px;
-    background: #000000;
+    background: var(--backdrop);
   }
 }
 
@@ -748,7 +788,7 @@ a:active {
   align-items: center;
   gap: 12px;
   padding: 12px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--row-line);
 }
 
 /* Remove border on last row */
@@ -797,26 +837,31 @@ a:active {
 
 /* "PLAYING" STATE */
 .mobile-track-row.playing {
-  background: #171a1a;
-  border: #ccffff
+  background: var(--playing-bg);
+  border: var(--accent)
 }
 
 .mobile-track-row.playing .mobile-track-indicator {
   opacity: 1;
-  color: #ccffff;
+  color: var(--accent);
 }
 
 audio {
     width: 100%;
     border-radius: 10px;
     padding: 6px;
-    accent-color: #ccffff; 
+    accent-color: var(--accent); 
 }
 
 .mobile-track-disclaimer {
   font-size: 0.75rem;
-  color: #b22222;   /* red */
+  color: var(--danger-strong);   /* red */
   margin-top: 4px;
   line-height: 1.1rem;
   font-weight: 600; /* optional: slightly bold */
+}
+/* Contact links: roomy enough to tap on a phone */
+.ft-contact-widget a {
+  display: inline-block;
+  padding: 14px;
 }

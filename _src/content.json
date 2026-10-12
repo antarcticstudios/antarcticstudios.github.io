@@ -1,0 +1,335 @@
+{
+  "site": {
+    "author": "Alex McVittie",
+    "analyticsId": "G-Y0MFH1PJ7G",
+    "keywords": "music studio, recording studio, Cambridge Ontario, saxophone session, keyboard session, mixing, mastering, synthwave, rock, electronic, session musician, Antarctic Studios, Alex McVittie, live drums, real amps, music production, audio engineering, studio gear, music portfolio, client testimonials, contact, Canada",
+    "ogTitle": "Antarctic Music Studios - Keys, Sax, Mixing & Recording in Ontario",
+    "ogDescription": "Professional music studio in Cambridge, Ontario specializing in saxophone, keyboard, mixing, mastering, and recording. Hear our portfolio and get in touch!",
+    "ogImage": "https://antarcticstudios.ca/img/intro/headshot.webp",
+    "twitterTitle": "Antarctic Music Studios | Cambridge, Ontario",
+    "twitterDescription": "Session keys, sax, mixing, mastering, and recording in Cambridge, Ontario. Hear samples and contact Alex McVittie."
+  },
+  "contact": {
+    "email": "alex@antarcticstudios.ca",
+    "phone": "(226) 279 2261",
+    "phoneHref": "+1226-279-2261",
+    "streetAddress": "245 St Andrews Street",
+    "address": "245 St Andrews Street, Cambridge, ON",
+    "mapUrl": "https://maps.app.goo.gl/s5WYN4dBpCfCBZQS6",
+    "instagram": "https://instagram.com/antarcticstudios",
+    "facebook": "https://facebook.com/antarcticstudios",
+    "musoUrl": "https://credits.muso.ai/profile/aaebb6e7-05ed-4003-8c4b-5f5a7020d2d0",
+    "formAction": "https://formspree.io/f/maylelbk"
+  },
+  "home": {
+    "seoTitle": "Antarctic Music Studios | Recording Studio in Cambridge, Kitchener & Waterloo Region",
+    "seoDescription": "Professional recording studio serving Cambridge, Kitchener, Waterloo, and the Waterloo Region. Mixing, mastering, live recording, and session musicians with pro-level results.",
+    "heroTitle": "Antarctic Music Studios - Recording, Mixing, Mastering & Session Tracks",
+    "heroTagline": "Elevate your sound with smooth mixes, killer sax, and keyboard tracks.",
+    "introParagraphs": [
+      "Hi, I'm Alex McVittie, owner of Antarctic Music Studios. I've been playing keys for over <span id=\"years-keys\"></span>, sax for over <span id=\"years-sax\"></span>, and I've been in more bands than I can count - everything from ska to progressive rock. While I'm still in a few prog bands and have a solo synthwave project, I love helping artists bring their tracks to a release-ready, pro-level standard, no matter the genre.",
+      "Based in Cambridge, Ontario, I work with artists across Kitchener, Waterloo, Guelph, and the Waterloo Region, as well as remotely. The studio is fully equipped for live drums, real amps, and modern production across rock, electronic, and more - if it grooves, I'm in.",
+      "Check out the portfolio below and get in touch if you'd like to work together."
+    ],
+    "portfolioHeading": "Music Portfolio – Session Work & Production",
+    "portfolioCta": "Click or tap on any of the tracks below to listen!",
+    "reviewsBlurb": "Read what artists and clients have to say about working at Antarctic Music Studios with Alex McVittie.",
+    "galleryHeading": "Studio Gallery",
+    "galleryBlurb": "A look inside Antarctic Music Studios in Cambridge, Ontario. Explore our gear, instruments, and creative space.",
+    "contactHeading": "Get in Touch",
+    "contactBlurb": "Every project is unique. Pricing is available upon request, and we're happy to work with most budgets to make your vision happen. Reach out to discuss your music, session work, or production needs.",
+    "equipmentHeading": "Studio Equipment & Gear List",
+    "equipmentBlurb": "Explore the microphones, instruments, amps, and software available at Antarctic Music Studios. We use professional gear for every session and production."
+  },
+  "equipment": {
+    "columns": [
+      {
+        "title": "Microphones",
+        "groups": [
+          {
+            "name": "Condensers",
+            "items": [
+              "Apex 565 clip-on microphone",
+              "Audio Technica AT4033a",
+              "Dachman Audio DA47FET",
+              "Dachman Audio DA87SE",
+              "MXL V69 Mogami",
+              "Sonarworks Omni Mic",
+              "Warm Audio WA-251",
+              "Warm Audio WA-47jr",
+              "Warm Audio WA-84 (x2, matched pair)"
+            ]
+          },
+          {
+            "name": "Dynamics",
+            "items": [
+              "AKG D112",
+              "ElectroVoice N/D 257A",
+              "ElectroVoice RE20",
+              "ElectroVoice RE320",
+              "Shure SM57 (x3) & SM58",
+              "Shure SM7b"
+            ]
+          },
+          {
+            "name": "Ribbon",
+            "items": [
+              "Boyko Designs ПPOEKT-2 MИKPOФOH",
+              "MXL R144 (x2)"
+            ]
+          },
+          {
+            "name": "Specialty",
+            "items": [
+              "Custom lofi handset phone microphone"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instruments & Synths",
+        "groups": [
+          {
+            "name": "Keyboards & Hardware Synths",
+            "items": [
+              "ASM Hydrasynth",
+              "Behringer Lm-Drum drum machine",
+              "Behringer Model15 semi modular synth",
+              "Expressive E Osmose",
+              "Roland AX Edge keytar",
+              "Roland Fantom 07 76 key synth",
+              "Roland RD-2000 88 weighted key"
+            ]
+          },
+          {
+            "name": "Modular Synthesis",
+            "items": [
+              "Behringer ARP 2600",
+              "Ericasynths Pico Input",
+              "Doepfer A199 Spring Reverb",
+              "Mutable Instruments Clouds",
+              "DPW Shape"
+            ]
+          },
+          {
+            "name": "Drums",
+            "items": [
+              "Pearl Export Poplar/Asian Mahogany shells (22\" kick, 10/12/16 toms, matched 14 snare)",
+              "Tama HP900PWN Iron Cobra 900 Power Glide Double Bass Drum Pedal",
+              "Zildjian A Custom cymbals (20\" medium ride, 17\" fast crash, 14\" hihat)",
+              "Sabian hand-hammered 5\" splash/china"
+            ]
+          },
+          {
+            "name": "Guitars & Ukuleles",
+            "items": [
+              "Epiphone Les Paul Studio electric guitar",
+              "Jackson JS22-7 electric guitar",
+              "Alvarez acoustic guitar",
+              "Parlour-sized nylon string guitar",
+              "Epiphone Les Paul concert scale ukulele",
+              "Kala tenor scale ukulele"
+            ]
+          },
+          {
+            "name": "Other Instruments",
+            "items": [
+              "Casio DG-10 digital guitar synthesizer",
+              "Golem Poseidon 4 Theremin",
+              "Kalimba thumb piano"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Guitar & Bass Gear",
+        "groups": [
+          {
+            "name": "Amplifiers & Cabinets",
+            "items": [
+              "Hughes & Kettner Spirit of Rock 50W head",
+              "Marshall Origin 20W head",
+              "Orange Micro Dark 25W head",
+              "Peavey 6505+ 60W head",
+              "Line 6 Spider Valve 112 combo guitar amp",
+              "Peavey MAX 115 300W combo bass amp",
+              "Orange PPC212 guitar cabinet (Jim Root signature)",
+              "Suhr 100W Reactive Loadbox"
+            ]
+          },
+          {
+            "name": "Pedals & FX",
+            "items": [
+              "Boss HM2 & MT2 overdrive pedals",
+              "Boss RC-20 Loop Pedal",
+              "Electro-Harmonix Big Muff fuzz pedal (Soviet era)",
+              "Fender Hello Kitty Fuzz",
+              "Joyo Tauren (Klon clone)",
+              "MXR Talkbox"
+            ]
+          },
+          {
+            "name": "Accessories",
+            "items": [
+              "Radial ProRMP Reamp box",
+              "RNDI Active DI",
+              "ART PD2 Passive DI (x3)",
+              "ART BT-DI Bluetooth DI box"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Studio Hardware",
+        "groups": [
+          {
+            "name": "Audio Interface & Converters",
+            "items": [
+              "RME UFXIII 188ch audio interface",
+              "Behringer ADA8200 (x2, modded)"
+            ]
+          },
+          {
+            "name": "Monitoring",
+            "items": [
+              "Yorkville YSM6 2-way monitors <i>with SonarWorks</i>",
+              "Adam Audio T10 Subwoofer",
+              "ART 4ch headphone amplifier",
+              "Audio-Technica ATH-M50x headphones (x2)",
+              "Bose QC25 headphones",
+              "Sennheiser HD518 headphones"
+            ]
+          },
+          {
+            "name": "Preamps",
+            "items": [
+              "Cranborne Camden (x2)",
+              "DIYRE CP5",
+              "LA Audio MLX20 dual preamp",
+              "N-SONIC N73 (Neve style)"
+            ]
+          },
+          {
+            "name": "Compressors & FX Units",
+            "items": [
+              "AudioScape 1176 Rev. A (Blue stripe) compressor",
+              "AudioScape SSL Bus Compressor",
+              "AudioScape V3A Opto Compressor",
+              "Shure M267 mixer/limiter",
+              "Sony DPS-V55 stereo FX unit",
+              "SPL BiG stereo widener"
+            ]
+          },
+          {
+            "name": "MIDI controllers",
+            "items": [
+              "Arturia Keystep 25",
+              "Maschine MK1 pad controller",
+              "PreSonus Faderport 16"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Software",
+        "groups": [
+          {
+            "name": "DAWs",
+            "items": [
+              "Cubase 14 Pro",
+              "Harrison MixBus Pro",
+              "PreSonus Studio One Artist 6",
+              "Reaper"
+            ]
+          },
+          {
+            "name": "Mixing/Mastering Plugins",
+            "items": [
+              "FabFilter suite (Q3&4, C3, L2, MB, R2, Saturn, Timeless)",
+              "Izotope (Ozone, Neutron, RX)",
+              "Black Salt Audio Silencer",
+              "Oeksound (Soothe2, Spiff)",
+              "SSL Native Bus Compressor & Channel Strip",
+              "SubMission Audio (Flatline 2, PreFire)",
+              "URM (ChannelMate, LimiTilt, MiniClip, TrimPan)",
+              "SonarWorks SoundID"
+            ]
+          },
+          {
+            "name": "Soft Synths & Instruments",
+            "items": [
+              "Absynth 5",
+              "Battery",
+              "Equator2",
+              "FM8",
+              "Kontakt (Full)",
+              "Mercury 6",
+              "Massive & Massive X",
+              "SWAM Solo Strings 3"
+            ]
+          },
+          {
+            "name": "Guitar/Bass Virtual Amps",
+            "items": [
+              "Neural DSP (Plini, Petrucci, Rabea)",
+              "Bogren Digital (Bassknob STD, 5169 Ampknob)",
+              "Brainworx Ampeg SVT-VR",
+              "Native Instruments Guitar Rig 5",
+              "Scuffham Amps S-Gear 3",
+              "Softube Marshall Plexi",
+              "Two Notes Genome & Wall Of Sound",
+              "Waves Gtr"
+            ]
+          },
+          {
+            "name": "Drum Production",
+            "items": [
+              "Bogren Digital Krimh Drums",
+              "Samples From Mars complete collection",
+              "Steven Slate Trigger 2",
+              "ToonTrack Superior Drummer 3"
+            ]
+          },
+          {
+            "name": "Vocal Tools",
+            "items": [
+              "Synchro Arts VocAlign 6",
+              "Universal Audio plugins (1176, LA2A, etc)",
+              "iZotope VocalSynth"
+            ]
+          }
+        ],
+        "footnoteHtml": "<p><em>And more!</em></p>"
+      }
+    ]
+  },
+  "faq": {
+    "seoTitle": "Antarctic Music Studios | Cambridge ON | Mixing & Recording",
+    "seoDescription": "Antarctic Music Studios is a recording studio in Cambridge, Ontario which offers recording, mixing, mastering, session keyboardist work, session saxophone work, real guitar amplifiers, and live drum tracking for artists across genres.",
+    "heading": "Studio Policies & FAQ",
+    "sections": [
+      {
+        "title": "Deposits",
+        "body": "A deposit is required to secure your booking. The amount varies depending on the type and length of the session. If a deposit is not received within 72 hours, the booking may be cancelled and the time slot made available to other clients.\n<br>\nDeposits are non-refundable. If you need to cancel, the deposit can be applied toward a future booking or service.\n<br>\nIf the cancellation is on our end, your deposit will be fully refunded."
+      },
+      {
+        "title": "Payment Methods",
+        "body": "E-transfer is the easiest method - cash is also accepted, along with Paypal and credit card online via Quickbooks invoices. We do not have a physical card reader at the studio.\n<br>\nPayment is due in full at the end of the session, or upon delivery of the final mix if you are only purchasing mixing or mastering services. Final deliverables will not be sent until payment is received."
+      },
+      {
+        "title": "In-Person Sessions",
+        "body": "We do not accept walk-ins at this time. All in-person sessions must be booked in advance. <br>\nSessions begin at the agreed-upon time. If you arrive late, the session will still start and end at the scheduled time and the rate will not be adjusted. <br>\nWith at least 48 hours’ notice, we may be able to adjust your start time depending on availability.\n<br>\nTo help make the most of your session, we recommend sending any files you’d like to work on (such as stems or demos) at least 24 hours in advance so we can prepare.\n<br>\nThe studio does not operate in Pro Tools. If you would like to work from a Pro Tools session, please send stems or a demo for us to work from instead.\n<br>\nWith the exception of drum breakables, you are welcome to use any of the studio equipment during your session. Please refer to the <a href=\"/equipment\">gear list</a>, and feel free to ask if you have questions about available equipment. While most gear is usually available, occasional servicing may make certain items temporarily unavailable, so please check in advance if you plan to use something specific.\n<br>\n<br>\nMixing and mastering are offered as separate services unless time is specifically set aside for them during your session.\n<br>\nAt the end of a recording session, you can expect to receive lightly edited and comped takes, rather than a fully finished song."
+      },
+      {
+        "title": "Mixing and Mastering Services",
+        "body": "All mixing and mastering services include three additional revisions after the first mix delivery at no additional charge. Further revisions are subject to hourly rates."
+      },
+      {
+        "title": "Smoking and Consumption",
+        "body": "Smoking and drug use are not permitted inside the studio. You are welcome to smoke outside.\n<br>\nFood is allowed at your discretion, provided it does not pose a risk to studio equipment. Non-breakable, sealable containers such as travel mugs are recommended for drinks."
+      }
+    ],
+    "contactHeading": "Get in Touch",
+    "contactBlurb": "If you have any further questions around specifics of your project, or want to inquire about rates, please get in touch!"
+  }
+}

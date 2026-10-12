@@ -2,16 +2,34 @@
 <!-- GENERATED FILE — do not edit by hand. Edit _src/content.json or _src/templates/faq.html and rebuild with the site editor. -->
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
 	<!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0MFH1PJ7G"></script>
   <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 
 	gtag('config', 'G-Y0MFH1PJ7G');
+
+	// The analytics script is delayed so it never competes with the page itself:
+	// it loads on the visitor's first interaction, or 4 seconds after the page has loaded.
+	// Events sent before then wait in dataLayer and are delivered once it arrives.
+	(function () {
+	  var loaded = false;
+	  var triggers = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+	  function loadAnalytics() {
+		if (loaded) return;
+		loaded = true;
+		triggers.forEach(function (t) { window.removeEventListener(t, loadAnalytics); });
+		var s = document.createElement('script');
+		s.async = true;
+		s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y0MFH1PJ7G';
+		document.head.appendChild(s);
+	  }
+	  triggers.forEach(function (t) { window.addEventListener(t, loadAnalytics, { passive: true }); });
+	  window.addEventListener('load', function () { setTimeout(loadAnalytics, 4000); });
+	})();
   </script>
-  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antarctic Music Studios | Cambridge ON | Mixing & Recording</title>
   <meta name="keywords" content="music studio, recording studio, Cambridge Ontario, saxophone session, keyboard session, mixing, mastering, synthwave, rock, electronic, session musician, Antarctic Studios, Alex McVittie, live drums, real amps, music production, audio engineering, studio gear, music portfolio, client testimonials, contact, Canada" />

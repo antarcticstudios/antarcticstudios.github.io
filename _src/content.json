@@ -148,7 +148,6 @@
             "name": "Amplifiers & Cabinets",
             "items": [
               "Hughes & Kettner Spirit of Rock 50W head",
-              "Marshall Origin 20W head",
               "Orange Micro Dark 25W head",
               "Peavey 6505+ 60W head",
               "Line 6 Spider Valve 112 combo guitar amp",
@@ -214,7 +213,6 @@
             "items": [
               "AudioScape 1176 Rev. A (Blue stripe) compressor",
               "AudioScape SSL Bus Compressor",
-              "AudioScape V3A Opto Compressor",
               "Shure M267 mixer/limiter",
               "Sony DPS-V55 stereo FX unit",
               "SPL BiG stereo widener"
@@ -236,10 +234,9 @@
           {
             "name": "DAWs",
             "items": [
-              "Cubase 14 Pro",
               "Harrison MixBus Pro",
               "PreSonus Studio One Artist 6",
-              "Reaper"
+              "Reaper v7"
             ]
           },
           {
@@ -249,6 +246,7 @@
               "Izotope (Ozone, Neutron, RX)",
               "Black Salt Audio Silencer",
               "Oeksound (Soothe2, Spiff)",
+              "Sabol Hill LACUNA",
               "SSL Native Bus Compressor & Channel Strip",
               "SubMission Audio (Flatline 2, PreFire)",
               "URM (ChannelMate, LimiTilt, MiniClip, TrimPan)",
